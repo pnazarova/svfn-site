@@ -85,7 +85,6 @@ const faqs = [
       <div class="facts" style="margin-top:30px;">
         <span>Starts 5 October 2026</span>
         <span>16 sessions</span>
-        <span><span class="todo">weeks</span></span>
         <span>24 hours live</span>
         <span>30 seats</span>
         <span>$6,500</span>
@@ -103,7 +102,7 @@ const faqs = [
   <section>
     <div class="shell">
       <p class="eyebrow">Who it's for</p>
-      <div class="rows" style="margin-top:22px;">
+      <div class="rows" style="margin-top:22px;" data-rise-group>
         <div class="row">
           <h3>You've just been handed the mandate</h3>
           <p>The board expects results from AI and there is no playbook for getting there.</p>
@@ -127,7 +126,7 @@ const faqs = [
   <!-- ============ MASTERCLASS ============ -->
   <section id="masterclass" class="mc-band">
     <div class="shell">
-      <div class="mc-inner">
+      <div class="mc-inner" data-rise>
         <div>
           <p class="label" style="color:rgba(245,243,238,.5)">Free · no obligation</p>
           <h2 class="display h3" style="color:var(--bone); margin-top:10px;">Try it first.</h2>
@@ -146,7 +145,7 @@ const faqs = [
   <section>
     <div class="shell shell--narrow">
       <p class="eyebrow">What you leave with</p>
-      <ul class="outcomes">
+      <ul class="outcomes" data-rise-group>
         <li>An AI transformation plan for your own organization, reviewed by the faculty.</li>
         <li>A framework for prioritizing use cases and proving return.</li>
         <li>Language that works in a board meeting and in an engineering review.</li>
@@ -163,7 +162,7 @@ const faqs = [
     <div class="shell">
       <p class="eyebrow">Curriculum</p>
       <h2 class="display h3" style="margin-bottom:10px;">Sixteen sessions, four blocks.</h2>
-      <div class="blocks">
+      <div class="blocks" data-rise-group>
         {blocks.map((b, i) => (
           <div class="block">
             <div class="block-head">
@@ -215,7 +214,7 @@ const faqs = [
       </div>
 
       <h3 class="display h4" style="margin:40px 0 16px;">Guest practitioners</h3>
-      <div class="guest-grid">
+      <div class="guest-grid" data-rise-group>
         {guestsWithPhoto.map((g) => (
           <figure class="guest-card">
             <Portrait src={g.photo} name={g.name} size="md" />

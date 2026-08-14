@@ -11,10 +11,10 @@ import { nextMasterclass } from '../data/masterclasses.js';
   <section class="hero">
     <div class="shell">
       <p class="eyebrow">Executive programs for senior leaders</p>
-      <h1 class="display h1">
+      <h1 class="display h1" data-rise>
         Taught by the people <span class="accent">building the field.</span>
       </h1>
-      <div class="hero-split">
+      <div class="hero-split" data-rise>
         <div>
           <p class="lede hero-lede">
             For executives who need to understand what their own teams are building, and for the
@@ -31,20 +31,22 @@ import { nextMasterclass } from '../data/masterclasses.js';
           <p class="label">What's next</p>
 
           <a href="/masterclasses#signup" class="wn-item">
-            <span class="wn-when">1 September · 18:00 CET</span>
+            <span class="wn-when">Masterclass · 1 September</span>
             <span class="wn-what">Leading Today's AI in the Enterprise</span>
-            <span class="wn-meta">Masterclass with Carlos Escapa · 45 min · free</span>
+            <span class="wn-meta">With Carlos Escapa. One session from the program,
+            open to everyone. 45 minutes, 18:00 CET, free.</span>
           </a>
 
           <a href="/programs/chief-ai-officer" class="wn-item">
-            <span class="wn-when">5 October</span>
+            <span class="wn-when">Program · 5 October</span>
             <span class="wn-what">The Chief AI Officer Program</span>
-            <span class="wn-meta">16 sessions · 30 seats · $6,500</span>
+            <span class="wn-meta">With Carlos Escapa and Gregory La Blanc. Sixteen live
+            sessions over the cohort. 30 seats, $6,500.</span>
           </a>
         </aside>
       </div>
 
-      <p class="cred hero-cred">
+      <p class="cred hero-cred" data-rise>
         <span class="label">Faculty from</span>
         <span class="names">
           AWS<span>/</span>Databricks<span>/</span>OpenAI<span>/</span>Meta<span>/</span>UC&nbsp;Berkeley<span>/</span>Gartner
@@ -65,7 +67,7 @@ import { nextMasterclass } from '../data/masterclasses.js';
         is the conversation: real time with someone who has done this, where you ask your own
         questions and get a straight answer about your own organization.
       </p>
-      <div class="rows">
+      <div class="rows" data-rise-group>
         <div class="row">
           <h3>The person who built it teaches it</h3>
           <p>No facilitator. No pre-recorded lecture with a discussion group bolted on.
@@ -100,7 +102,7 @@ import { nextMasterclass } from '../data/masterclasses.js';
   <section>
     <div class="shell">
       <p class="eyebrow">Open for applications</p>
-      <div class="prog-feature">
+      <div class="prog-feature" data-rise>
         <div>
           <h2 class="display h3">The Chief AI Officer Program</h2>
           <p class="body" style="margin:14px 0 0;">
@@ -130,11 +132,12 @@ import { nextMasterclass } from '../data/masterclasses.js';
       <p class="eyebrow">Start here</p>
       <h2 class="display h3">Join a masterclass</h2>
       <p class="body" style="margin:14px 0 30px;">
-        Free, live, forty-five minutes. Our faculty teaching a real session rather than running
-        a sales webinar. The fastest way to see how we teach before committing to a program.
+        One session lifted out of a program and opened to everyone. Forty-five minutes with
+        the person who leads it, on a subject they work in. Come with a question and leave
+        knowing whether you want the rest.
       </p>
 
-      <div style="max-width:640px;">
+      <div style="max-width:640px;" data-rise>
         <MasterclassCard mc={nextMasterclass} />
       </div>
 
@@ -153,7 +156,7 @@ import { nextMasterclass } from '../data/masterclasses.js';
         Operators who have run AI at scale, the practitioners defining the field, and
         university faculty who study it.
       </p>
-      <div class="grid grid--3">
+      <div class="grid grid--3" data-rise-group>
         <div class="card person">
           <Portrait src="/faculty/carlos-escapa-sq.jpg" name="Carlos Escapa" size="md" />
           <h3>Carlos Escapa</h3>

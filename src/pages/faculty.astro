@@ -46,7 +46,7 @@ const principals = [
 
   <section>
     <div class="shell">
-      <div class="grid grid--2">
+      <div class="grid grid--2" data-rise-group>
         {principals.map((p) => (
           <article class="card fac">
             <Portrait src={p.photo} name={p.name} size="lg" />
@@ -67,7 +67,7 @@ const principals = [
     <div class="shell">
       <p class="eyebrow">Guest practitioners</p>
       <h2 class="display h3" style="margin-bottom:10px;">They join the sessions in their field.</h2>
-      <div class="guest-grid">
+      <div class="guest-grid" data-rise-group>
         {guestsWithPhoto.map((g) => (
           <figure class="guest-card">
             <Portrait src={g.photo} name={g.name} size="md" />
