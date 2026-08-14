@@ -113,7 +113,7 @@ const nav = [
           <a href="/masterclasses">Masterclasses</a>
           <a href="/apply">Apply</a>
         </div>
-        <div>
+        <div class="foot-contact">
           <p class="label">Contact</p>
           <a href="mailto:info@siliconvalleyfaculty.com">info@siliconvalleyfaculty.com</a>
         </div>
@@ -247,9 +247,15 @@ const nav = [
   .foot-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; padding: 34px 0; }
   .foot-cols .label { color: rgba(245,243,238,.45); margin: 0 0 12px; }
   .foot-cols a { display: block; text-decoration: none; color: rgba(245,243,238,.85);
-    font-size: .88rem; margin-bottom: 8px; overflow-wrap: anywhere; }
+    font-size: .88rem; margin-bottom: 8px; }
   .foot-cols a:hover { color: var(--bone); }
-  @media (max-width: 760px) { .foot-cols { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 760px) {
+    .foot-cols { grid-template-columns: repeat(2, 1fr); }
+    /* The address does not fit a half column and breaking it mid-word reads
+       as broken, so give it the full width on its own row. */
+    .foot-contact { grid-column: 1 / -1; }
+    .foot-contact a { font-size: .92rem; }
+  }
 
   .foot-legal { display: flex; flex-wrap: wrap; gap: 10px; font-size: .78rem;
     color: rgba(245,243,238,.45); padding-top: 24px; border-top: 1px solid rgba(245,243,238,.14); }
