@@ -2,17 +2,18 @@
 import Portrait from './Portrait.astro';
 
 /**
- * Masterclass card. Two states:
+ * Masterclass card. Three states:
  *   dated   -> "Save my seat"
- *   undated -> "Join the waitlist", and we send the last recording on signup
+ *   window  -> month known, "Sign up for date and information"
+ *   neither -> "Join the waitlist"
+ *
+ * Layout adapts to the width of its container, not the viewport, so the same
+ * component works full width on the home page and in a narrow column on
+ * /masterclasses without a prop.
  */
 const { mc, showBlurb = true } = Astro.props;
 const dated = Boolean(mc.date);
 
-// Three states, softest commitment last:
-//   dated   -> exact slot, "Save my seat"
-//   window  -> month known, "Sign up for date and information"
-//   neither -> "Join the waitlist"
 const eyebrow = dated
   ? 'Live'
   : mc.window
@@ -26,35 +27,42 @@ const cta = dated
     : 'Join the waitlist';
 ---
 
-<article class="mc-card">
-  <p class="label">{eyebrow} · {mc.program}</p>
+<div class="mc-shell">
+  <article class="mc-card">
+  <div class="mc-main">
+    <p class="label">{eyebrow} · {mc.program}</p>
+    <h3 class="display mc-title">{mc.title}</h3>
+    {showBlurb && mc.blurb && <p class="mc-blurb">{mc.blurb}</p>}
+  </div>
 
-  <h3 class="display mc-title">{mc.title}</h3>
-
-  {showBlurb && mc.blurb && <p class="mc-blurb">{mc.blurb}</p>}
-
-  <div class="mc-who">
-    <Portrait src={mc.photo} name={mc.faculty} size="sm" />
-    <div>
-      <span class="mc-name">{mc.faculty}</span>
-      <span class="mc-role">{mc.facultyRole}</span>
+  <div class="mc-side">
+    <div class="mc-who">
+      <Portrait src={mc.photo} name={mc.faculty} size="sm" />
+      <div>
+        <span class="mc-name">{mc.faculty}</span>
+        <span class="mc-role">{mc.facultyRole}</span>
+      </div>
     </div>
-  </div>
 
-  <div class="mc-facts">
-    {dated
-      ? <span>{mc.date}</span>
-      : mc.window
-        ? <span>{mc.window} · date to be confirmed</span>
-        : <span class="todo">date to be set</span>}
-    <span>{mc.duration}</span>
-    <span>Free</span>
-  </div>
+    <div class="mc-facts">
+      {dated
+        ? <span>{mc.date}</span>
+        : mc.window
+          ? <span>{mc.window} · date to be confirmed</span>
+          : <span class="todo">date to be set</span>}
+      <span>{mc.duration}</span>
+      <span>Free</span>
+    </div>
 
-  <a href="/masterclasses#signup" class="btn btn--solid">{cta}</a>
-</article>
+    <a href="/masterclasses#signup" class="btn btn--solid mc-cta">{cta}</a>
+  </div>
+  </article>
+</div>
 
 <style>
+  /* the shell is the container; the card is what the query styles */
+  .mc-shell { container-type: inline-size; }
+
   .mc-card {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -62,11 +70,8 @@ const cta = dated
     border-radius: 4px;
     padding: 28px;
   }
-  .mc-title {
-    font-size: var(--step-2);
-    line-height: 1.08;
-    margin: 10px 0 0;
-  }
+
+  .mc-title { font-size: var(--step-2); line-height: 1.08; margin: 10px 0 0; }
   .mc-blurb { margin: 12px 0 0; color: var(--ink-2); font-size: .93rem; max-width: 52ch; }
 
   .mc-who { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
@@ -79,5 +84,24 @@ const cta = dated
     font-family: var(--font-mono); font-size: .68rem;
     letter-spacing: .12em; text-transform: uppercase; color: var(--mid);
   }
-  .mc-card .btn { margin-top: 20px; }
+  .mc-cta { margin-top: 20px; }
+
+  /* Wide enough to split: detail on the left, who and when on the right,
+     so a full-width card is not text beside empty space. */
+  @container (min-width: 760px) {
+    .mc-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+      gap: 40px;
+      align-items: start;
+      padding: 32px;
+    }
+    .mc-side {
+      border-left: 1px solid var(--line);
+      padding-left: 32px;
+    }
+    .mc-who { margin-top: 0; }
+    .mc-facts { flex-direction: column; gap: 7px; }
+    .mc-cta { display: block; text-align: center; }
+  }
 </style>
