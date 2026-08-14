@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { FORM_ACCESS_KEY } from '../data/site.js';
+---
+
+<Layout title="Teach with us">
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">For faculty</p>
+      <h1 class="display h1">You know the field. <span class="accent">We'll run the rest.</span></h1>
+      <p class="lede" style="margin-top:24px;">
+        Bring your expertise and your audience. We build the curriculum around you, fill the
+        cohort, and handle enrollment, platform and operations. Your name is on the program.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section>
+    <div class="shell">
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>We handle</h3>
+          <p>Curriculum design, marketing and enrollment, platform and scheduling, participant
+          support, certification, and payments.</p>
+        </div>
+        <div class="card">
+          <h3>You bring</h3>
+          <p>The expertise, the teaching, and your name. Roughly 25 hours of live sessions
+          per cohort.</p>
+        </div>
+      </div>
+      <p class="body" style="margin-top:24px;">
+        <strong>Terms.</strong> Commercial terms are agreed individually with each faculty
+        member and depend on the shape of the program. Get in touch and we will walk you
+        through them.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="display h3" style="margin-bottom:24px;">Tell us what you'd teach.</h2>
+      <form method="POST" action="https://api.web3forms.com/submit">
+            <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
+            <input type="hidden" name="subject" value="Teach with us enquiry" />
+            <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
+            <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+        <div class="field"><label for="n">Name</label><input id="n" name="name" required /></div>
+        <div class="field"><label for="e">Email</label><input id="e" type="email" name="email" required /></div>
+        <div class="field"><label for="f">Your field</label><input id="f" name="field" required /></div>
+        <div class="field"><label for="p">The program you'd teach</label><textarea id="p" name="pitch"></textarea></div>
+        <button type="submit" class="btn btn--solid">Send</button>
+        <p class="dim" style="font-size:.78rem; margin-top:10px;">Goes straight to info@siliconvalleyfaculty.com.</p>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>.hero { padding-top: clamp(48px, 7vw, 84px); }</style>

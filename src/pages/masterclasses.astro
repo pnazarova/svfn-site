@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MasterclassCard from '../components/MasterclassCard.astro';
+import { masterclasses, nextMasterclass } from '../data/masterclasses.js';
+import { FORM_ACCESS_KEY } from '../data/site.js';
+---
+
+<Layout title="Masterclasses" description="Free, live sessions with our faculty.">
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Masterclasses</p>
+      <h1 class="display h2">Free, live, forty-five minutes.</h1>
+      <p class="lede" style="margin-top:22px;">
+        Our faculty teaching a real session rather than a sales webinar. Come to one before you
+        decide about a program.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Upcoming</p>
+      <div class="mc-layout">
+        {masterclasses.map((mc) => <MasterclassCard mc={mc} />)}
+
+        <!-- ============ SIGNUP ============ -->
+        <div class="signup" id="signup">
+          <p class="label">Save your seat</p>
+          <h2 class="display h4" style="margin:10px 0 6px;">{nextMasterclass.title}</h2>
+          <p class="signup-when">{nextMasterclass.date}</p>
+
+          <form
+            method="POST"
+            action="https://api.web3forms.com/submit"
+          >
+            <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
+            <input type="hidden" name="subject" value="Masterclass signup" />
+            <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
+            <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+            <input type="hidden" name="masterclass-title" value={nextMasterclass.title} />
+
+            <div class="field">
+              <label for="mc-name">Name</label>
+              <input id="mc-name" name="name" required />
+            </div>
+            <div class="field">
+              <label for="mc-email">Work email</label>
+              <input id="mc-email" type="email" name="email" placeholder="you@company.com" required />
+            </div>
+            <div class="field">
+              <label for="mc-company">Company and role</label>
+              <input id="mc-company" name="company" />
+            </div>
+
+            <button type="submit" class="btn btn--solid" style="width:100%;">Save my seat</button>
+            <p class="dim tiny">
+              We email you the joining link and nothing else. No spam, no list sharing.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="shell center">
+      <h2 class="display h3" style="color:var(--bone)">The programs these come from</h2>
+      <div class="btnrow" style="justify-content:center; margin-top:24px;">
+        <a href="/programs" class="btn btn--solid">See the programs</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(48px, 7vw, 84px); }
+
+  .mc-layout {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .mc-layout { grid-template-columns: 1fr; } }
+
+  .signup {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .signup-when {
+    font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--mid); margin: 0 0 22px;
+  }
+  .tiny { font-size: .74rem; margin: 12px 0 0; line-height: 1.5; }
+  .closing { background: var(--ink); }
+</style>

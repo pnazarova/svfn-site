@@ -1,0 +1,27 @@
+---
+// The graphene lattice mark. `size` in px, `reversed` for dark grounds.
+const { size = 44, reversed = false } = Astro.props;
+const stroke = reversed ? '#F5F3EE' : 'currentColor';
+const atom = reversed ? '#F5F3EE' : 'currentColor';
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 64 64"
+  fill="none"
+  role="img"
+  aria-label="The Silicon Valley Faculty Network"
+  style="flex:none"
+>
+  <g transform="translate(-1,1.9)">
+    <g stroke={stroke} stroke-width="2.8" stroke-linejoin="round">
+      <path d="M23 10 L33 15.75 L33 27.25 L23 33 L13 27.25 L13 15.75 Z" />
+      <path d="M43 10 L53 15.75 L53 27.25 L43 33 L33 27.25 L33 15.75 Z" />
+      <path d="M33 27.25 L43 33 L43 44.5 L33 50.25 L23 44.5 L23 33 Z" />
+    </g>
+    <circle cx="33" cy="27.25" r="4.7" fill="#D6431F" />
+    <circle cx="23" cy="33" r="3.3" fill={atom} />
+    <circle cx="43" cy="33" r="3.3" fill={atom} />
+  </g>
+</svg>

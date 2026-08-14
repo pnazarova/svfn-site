@@ -1,0 +1,53 @@
+---
+/**
+ * Portrait
+ *
+ * Renders a faculty headshot, or a labelled placeholder if none exists yet.
+ * To add a real photo: drop the file into  site/public/faculty/
+ * then pass  src="/faculty/carlos-escapa.jpg"
+ *
+ * Recommended source image: square, at least 800x800, face centred.
+ */
+const { src = null, name = '', size = 'md' } = Astro.props;
+---
+
+{src ? (
+  <img class={`portrait portrait--${size}`} src={src} alt={name} loading="lazy" width="800" height="800" />
+) : (
+  <div class={`portrait portrait--${size} portrait--empty`} aria-hidden="true">
+    <span class="todo">photo</span>
+  </div>
+)}
+
+<style>
+  .portrait {
+    width: 100%;
+    border-radius: 3px;
+    background: var(--bone);
+    border: 1px solid var(--line);
+    object-fit: cover;
+    /* Source files are cropped per-image, so don't shift them again here.
+       Slightly above centre only, for the rare case a source isn't square. */
+    object-position: center 35%;
+    display: block;
+  }
+  /* sm — inline avatar, e.g. guest list */
+  .portrait--sm { aspect-ratio: 1 / 1; max-width: 56px; border-radius: 50%; }
+
+  /* md — 3-up grids. Square keeps the card compact when the grid collapses. */
+  .portrait--md { aspect-ratio: 1 / 1; margin-bottom: 16px; max-width: 260px; }
+
+  /* lg — principal faculty. Capped so it never balloons in a single column. */
+  .portrait--lg { aspect-ratio: 4 / 5; max-width: 200px; }
+
+  @media (max-width: 760px) {
+    .portrait--md { max-width: 200px; }
+    .portrait--lg { max-width: 170px; }
+  }
+
+  .portrait--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

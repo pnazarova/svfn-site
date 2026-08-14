@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { FORM_ACCESS_KEY } from '../data/site.js';
+---
+
+<Layout title="Apply">
+  <section class="hero">
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Cohort one</p>
+      <h1 class="display h2">Apply for the Chief AI Officer Program.</h1>
+      <p class="lede" style="margin-top:22px;">
+        Thirty seats. We review applications as they arrive and reply within
+        <span class="todo">N</span> business days.
+      </p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="shell shell--narrow">
+      <form method="POST" action="https://api.web3forms.com/submit" class="applyform">
+            <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
+            <input type="hidden" name="subject" value="New application" />
+            <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
+            <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+        <div class="grid grid--2" style="gap:0 18px;">
+          <div class="field"><label for="fn">Name</label><input id="fn" name="name" required /></div>
+          <div class="field"><label for="em">Work email</label><input id="em" type="email" name="email" required /></div>
+          <div class="field"><label for="co">Company</label><input id="co" name="company" required /></div>
+          <div class="field"><label for="ti">Job title</label><input id="ti" name="title" required /></div>
+        </div>
+        <div class="field"><label for="li">LinkedIn</label><input id="li" name="linkedin" placeholder="linkedin.com/in/…" /></div>
+        <div class="field">
+          <label for="go">What are you hoping to get from the program?</label>
+          <textarea id="go" name="goal"></textarea>
+        </div>
+        <div class="field">
+          <label for="pay">Who would be paying?</label>
+          <select id="pay" name="payer">
+            <option>My company</option>
+            <option>Me personally</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn--solid">Submit application</button>
+        <p class="dim" style="font-size:.78rem; margin-top:12px;">
+          We reply to every application. Your details go to
+          info@siliconvalleyfaculty.com and nowhere else.
+        </p>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(48px, 7vw, 84px); padding-bottom: 28px; }
+  .applyform { background: var(--surface); border: 1px solid var(--line);
+    border-radius: 4px; padding: 30px; }
+</style>

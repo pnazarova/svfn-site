@@ -1,0 +1,401 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Portrait from '../../components/Portrait.astro';
+import { guestsWithPhoto, guestsListed } from '../../data/guests.js';
+
+const blocks = [
+  {
+    name: 'Strategy and value',
+    sessions: [
+      'Data and AI at the core of business strategy',
+      'From business strategy to AI strategy',
+      'Data as a strategic asset and the economics of data',
+      'Measuring return, and proving it to a board',
+    ],
+  },
+  {
+    name: 'Technology, at executive altitude',
+    sessions: [
+      'How AI actually works, enough to lead the conversation',
+      'Generative AI strategy and build versus buy',
+      'Agentic AI: agents, centaurs and failover to human',
+      'Technology selection, procurement and delivery at scale',
+    ],
+  },
+  {
+    name: 'Organization and people',
+    sessions: [
+      'Organizing for data and AI',
+      'Talent, skills and the shape of the team',
+      'Change management and evangelizing transformation',
+      'Getting CEO commitment and resources',
+    ],
+  },
+  {
+    name: 'Risk, governance and the long game',
+    sessions: [
+      'Governance, ethics and regulation',
+      'Security, privacy and the risk of not adopting',
+      'Competitive advantage and proprietary models',
+      'Bringing it together: your transformation plan',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: 'How much time does it really take?',
+    a: 'Twenty-four hours of live sessions across the program, an hour and a half at a time. Every session is recorded. Office hours are available for an hour each day on request if you want private time on your own plan.',
+  },
+  {
+    q: 'Do I need a technical background?',
+    a: 'No. The program is pitched at executive altitude: strategy, economics, organization and governance. The optional Build Labs require no coding experience either; that is the point of them.',
+  },
+  {
+    q: 'What certificate do I get?',
+    a: 'A Certificate of Completion from The Silicon Valley Faculty Network, signed by the faculty who taught you. Certification differs by program and each one states clearly what it carries. Our online programs are not UC Berkeley certified.',
+  },
+  {
+    q: 'What if I miss a session?',
+    a: 'Every session is recorded and available to the cohort. Faculty office hours cover anything you want to pick up afterward.',
+  },
+  {
+    q: 'Can my company pay?',
+    a: 'Yes. We invoice directly and provide a receipt for expensing, plus a one-page summary you can send to your manager. Team rates apply from three participants.',
+  },
+];
+---
+
+<Layout
+  title="The Chief AI Officer Program"
+  description="A live executive program for senior data and AI leaders, led by Carlos Escapa and Gregory La Blanc."
+>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Chief AI Officer Program</p>
+      <h1 class="display h1">Step into the Chief AI Officer <span class="accent">seat.</span></h1>
+      <p class="lede" style="margin-top:24px;">
+        A 16-session executive program taught live by
+        <strong>Carlos Escapa</strong>, who led AI and machine learning practice at AWS, and
+        <strong>Gregory La Blanc</strong>, faculty at UC Berkeley, with the practitioners
+        who built the field as guests.
+      </p>
+      <div class="facts" style="margin-top:30px;">
+        <span>Starts 5 October 2026</span>
+        <span>16 sessions</span>
+        <span><span class="todo">weeks</span></span>
+        <span>24 hours live</span>
+        <span>30 seats</span>
+        <span>$6,500</span>
+      </div>
+      <div class="btnrow" style="margin-top:30px;">
+        <a href="/apply" class="btn btn--solid">Apply for cohort one</a>
+        <a href="#masterclass" class="btn btn--ghost">Try a free masterclass</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ WHO IT'S FOR ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Who it's for</p>
+      <div class="rows" style="margin-top:22px;">
+        <div class="row">
+          <h3>You've just been handed the mandate</h3>
+          <p>The board expects results from AI and there is no playbook for getting there.</p>
+        </div>
+        <div class="row">
+          <h3>You're moving toward the chief seat</h3>
+          <p>VP or Director of Data, AI or Analytics, and you want the frame and the vocabulary that go with the title.</p>
+        </div>
+        <div class="row">
+          <h3>You're translating in both directions</h3>
+          <p>Technical teams below, a skeptical C-suite above, and no shared language between them.</p>
+        </div>
+      </div>
+      <p class="dim" style="margin-top:20px; font-size:.92rem;">
+        Not for you if you are looking for an introduction to AI, or for a technical course.
+        This assumes seniority and gives you the executive view.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ MASTERCLASS ============ -->
+  <section id="masterclass" class="mc-band">
+    <div class="shell">
+      <div class="mc-inner">
+        <div>
+          <p class="label" style="color:rgba(245,243,238,.5)">Free · no obligation</p>
+          <h2 class="display h3" style="color:var(--bone); margin-top:10px;">Try it first.</h2>
+          <p style="color:rgba(245,243,238,.78); max-width:48ch; margin:14px 0 0;">
+            <strong>Leading Today's AI in the Enterprise</strong>, a forty-five minute
+            masterclass with Carlos Escapa on 1 September at 18:00 CET. The same format as a
+            real session, and free.
+          </p>
+        </div>
+        <a href="/masterclasses#signup" class="btn btn--solid">Save my seat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUTCOMES ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">What you leave with</p>
+      <ul class="outcomes">
+        <li>An AI transformation plan for your own organization, reviewed by the faculty.</li>
+        <li>A framework for prioritizing use cases and proving return.</li>
+        <li>Language that works in a board meeting and in an engineering review.</li>
+        <li>Roughly thirty peers in the same seat, and the faculty's contact details.</li>
+        <li>Optionally, a working prototype you built yourself.</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ CURRICULUM ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Curriculum</p>
+      <h2 class="display h3" style="margin-bottom:10px;">Sixteen sessions, four blocks.</h2>
+      <div class="blocks">
+        {blocks.map((b, i) => (
+          <div class="block">
+            <div class="block-head">
+              <span class="block-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="display h4">{b.name}</h3>
+            </div>
+            <ol class="sessions">
+              {b.sessions.map((s) => <li>{s}</li>)}
+            </ol>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FACULTY ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Faculty</p>
+      <div class="grid grid--2" style="margin-top:22px;">
+        <article class="card fac">
+          <Portrait src="/faculty/carlos-escapa.jpg" name="Carlos Escapa" size="lg" />
+          <div class="fac-txt">
+            <p class="label">Program Lead</p>
+            <h3 class="display h4">Carlos Escapa</h3>
+            <p>Carlos led AI and machine learning practice at AWS for nearly a decade, first as
+            Global AI/ML Practice Leader and later running Data and AI for the Accenture-AWS
+            Business Group, with a period at Meta in AI business development in between. He has
+            worked on hundreds of implementation projects worldwide and coauthored
+            <em>The AI-Driven Business: Leading, Competing and Thriving in the Age of Artificial Intelligence</em>. He advises startups on corporate development and
+            go-to-market, and lectures at Berkeley Haas, ESADE and IE.</p>
+          </div>
+        </article>
+        <article class="card fac">
+          <Portrait src="/faculty/gregory-la-blanc.jpg" name="Gregory La Blanc" size="lg" />
+          <div class="fac-txt">
+            <p class="label">Faculty Director</p>
+            <h3 class="display h4">Gregory La Blanc</h3>
+            <p>Greg is Faculty Director of Professional Education at UC Berkeley's College of
+            Engineering and a Distinguished Teaching Fellow at Berkeley Haas and Berkeley Law.
+            He has taught at Stanford's Graduate School of Business and HEC Paris, and holds the
+            Haas Cheit Award for teaching. He has advised leaders at more than a hundred companies
+            and governments on strategy, finance and technology, and hosts unSILOed, a podcast now
+            past six hundred conversations.</p>
+          </div>
+        </article>
+      </div>
+
+      <h3 class="display h4" style="margin:40px 0 16px;">Guest practitioners</h3>
+      <div class="guest-grid">
+        {guestsWithPhoto.map((g) => (
+          <figure class="guest-card">
+            <Portrait src={g.photo} name={g.name} size="md" />
+            <figcaption>
+              <span class="gname">{g.name}</span>
+              <span class="gaff">{g.affiliation}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="guest-list" style="margin-top:40px;">
+        {guestsListed.map((g) => (
+          <div class="guest-row">
+            <span class="gname">{g.name}</span>
+            <span class="gaff">{g.affiliation}</span>
+            <span class="gses">{g.session}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ HOW IT RUNS + BUILD LABS ============ -->
+  <section>
+    <div class="shell">
+      <div class="grid grid--2">
+        <div>
+          <p class="eyebrow">How it runs</p>
+          <p class="body">
+            Live on <span class="todo">day</span> at <span class="todo">time + timezone</span>.
+            Each session runs an hour and a half and is recorded if you miss one.
+          </p>
+          <p class="body">
+            On top of the sessions, an hour of office hours is available every day on
+            request, for private support on your own plan.
+          </p>
+          <p class="body">
+            The cohort is capped at thirty so sessions stay discussion rather than lecture.
+          </p>
+        </div>
+        <div class="labs">
+          <p class="label" style="color:var(--signal)">Optional track</p>
+          <h3 class="display h4" style="margin:8px 0 12px;">Build it yourself.</h3>
+          <p class="body">
+            Most executive programs stop at a written plan. Alongside the core sessions,
+            an optional set of labs where you build a working prototype using AI coding
+            tools, no engineering background needed. Take them or don't; the strategy
+            track stands on its own.
+          </p>
+          <div class="facts" style="margin-top:18px;">
+            <span><span class="todo">N</span> labs</span>
+            <span>+<span class="todo">8</span> hours</span>
+            <span>Included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ PRICE ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Tuition</p>
+      <h2 class="display h2">$6,500</h2>
+      <p class="body" style="margin:16px 0 20px;">
+        Includes all sessions, the Build Labs, recordings, all materials, faculty review of
+        your capstone, and the certificate.
+      </p>
+      <ul class="incl">
+        <li>Team rate from three participants: <span class="todo">discount</span></li>
+        <li>Payment plan: <span class="todo">terms</span></li>
+        <li>Invoice and receipt for expensing, plus a one-pager for your manager</li>
+        <li><span class="todo">Refund and cancellation policy</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATE ============ -->
+  <section class="cert-band">
+    <div class="shell shell--narrow center">
+      <p class="eyebrow">On completion</p>
+      <h2 class="display h3">Certificate of Completion</h2>
+      <p class="body" style="margin:14px auto 0;">
+        Issued by The Silicon Valley Faculty Network and signed by Carlos Escapa and
+        Gregory La Blanc, with their affiliations. Shareable on LinkedIn.
+      </p>
+      <p class="dim" style="margin-top:14px; font-size:.88rem;">
+        A professional certificate, not an academic qualification. It records that you
+        completed the program and who taught it.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FAQ ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Questions</p>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing">
+    <div class="shell center">
+      <h2 class="display h2" style="color:var(--bone)">
+        Cohort one starts 5 October 2026.
+      </h2>
+      <p style="color:rgba(245,243,238,.78); margin:18px auto 28px; max-width:44ch;">
+        Thirty seats. Applications reviewed as they arrive.
+      </p>
+      <div class="btnrow" style="justify-content:center;">
+        <a href="/apply" class="btn btn--solid">Apply now</a>
+        <a href="/masterclasses" class="btn btn--ghost btn--rev">Join a masterclass</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(48px, 7vw, 84px); }
+
+  .outcomes { list-style: none; padding: 0; margin: 18px 0 0; }
+  .outcomes li { padding: 14px 0 14px 26px; border-bottom: 1px solid var(--line);
+    position: relative; color: var(--ink-2); }
+  .outcomes li::before { content: '·'; position: absolute; left: 0; color: var(--signal); font-weight: 700; }
+  .outcomes li:last-child { border-bottom: 0; }
+
+  .blocks { display: grid; gap: 16px; }
+  .block { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 26px 28px; }
+  .block-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+  .block-num { font-family: var(--font-mono); font-size: .7rem; color: var(--signal); font-weight: 700; }
+  .sessions { margin: 0; padding-left: 20px; color: var(--ink-2); }
+  .sessions li { padding: 5px 0; font-size: .95rem; }
+
+  .fac { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: start; }
+  .fac h3 { margin: 6px 0 10px; }
+  @media (max-width: 620px) { .fac { grid-template-columns: 1fr; gap: 18px; } }
+
+  .guests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .guests { grid-template-columns: 1fr; } }
+  .guest { display: flex; align-items: center; gap: 14px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 4px; padding: 14px 16px; }
+  .guest p { margin: 2px 0 0; font-size: .8rem; }
+  .ph--sm { width: 44px; height: 44px; border-radius: 50%; background: var(--bone);
+    border: 1px solid var(--line); flex: none; }
+
+  .labs { background: var(--surface); border: 1px solid var(--line);
+    border-left: 3px solid var(--signal); border-radius: 4px; padding: 28px; }
+
+  .mc-band { background: var(--ink); }
+  .mc-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px; }
+
+  .incl { list-style: none; padding: 0; margin: 0; }
+  .incl li { padding: 12px 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: .95rem; }
+
+  .cert-band { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
+  .faq summary { cursor: pointer; padding: 16px 0; font-weight: 650; font-size: 1rem; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: '+'; color: var(--signal); font-weight: 700; margin-right: 12px; }
+  .faq details[open] summary::before { content: '−'; }
+  .faq p { margin: 0 0 18px 26px; color: var(--ink-2); font-size: .95rem; max-width: 60ch; }
+
+  .closing { background: var(--ink); }
+  .btn--rev { border-color: rgba(245,243,238,.5); color: var(--bone); }
+  .btn--rev:hover { background: var(--bone); color: var(--ink); }
+</style>

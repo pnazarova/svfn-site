@@ -1,0 +1,234 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Portrait from '../components/Portrait.astro';
+import MasterclassCard from '../components/MasterclassCard.astro';
+import { nextMasterclass } from '../data/masterclasses.js';
+---
+
+<Layout title="Executive programs for senior leaders">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Executive programs for senior leaders</p>
+      <h1 class="display h1">
+        Taught by the people <span class="accent">building the field.</span>
+      </h1>
+      <div class="hero-split">
+        <div>
+          <p class="lede hero-lede">
+            For executives who need to understand what their own teams are building, and for the
+            people moving into those seats next. Live programs in cohorts of about thirty, taught
+            by practitioners working at the front of the field right now.
+          </p>
+          <div class="btnrow hero-btns">
+            <a href="/programs/chief-ai-officer" class="btn btn--solid">See the program</a>
+            <a href="/masterclasses" class="btn btn--ghost">Join a masterclass</a>
+          </div>
+        </div>
+
+        <aside class="whatsnext">
+          <p class="label">What's next</p>
+
+          <a href="/masterclasses#signup" class="wn-item">
+            <span class="wn-when">1 September · 18:00 CET</span>
+            <span class="wn-what">Leading Today's AI in the Enterprise</span>
+            <span class="wn-meta">Masterclass with Carlos Escapa · 45 min · free</span>
+          </a>
+
+          <a href="/programs/chief-ai-officer" class="wn-item">
+            <span class="wn-when">5 October</span>
+            <span class="wn-what">The Chief AI Officer Program</span>
+            <span class="wn-meta">16 sessions · 30 seats · $6,500</span>
+          </a>
+        </aside>
+      </div>
+
+      <p class="cred hero-cred">
+        <span class="label">Faculty from</span>
+        <span class="names">
+          AWS<span>/</span>Databricks<span>/</span>OpenAI<span>/</span>Meta<span>/</span>UC&nbsp;Berkeley<span>/</span>Gartner
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ WHAT THIS IS ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Why this is different</p>
+      <h2 class="display h3" style="margin-bottom:16px;">
+        Access is the product.
+      </h2>
+      <p class="body" style="margin-bottom:32px;">
+        Content has never been cheaper, and AI has made it cheaper still. What is scarce now
+        is the conversation: real time with someone who has done this, where you ask your own
+        questions and get a straight answer about your own organization.
+      </p>
+      <div class="rows">
+        <div class="row">
+          <h3>The person who built it teaches it</h3>
+          <p>No facilitator. No pre-recorded lecture with a discussion group bolted on.
+          The people who defined this field run the session themselves, and stay for
+          the questions.</p>
+        </div>
+        <div class="row">
+          <h3>Small cohorts</h3>
+          <p>Up to thirty seats, closer to a round table than a lecture hall. Enough time to
+          work on your own situation, enough access to put your questions directly to the
+          faculty, and a peer group you will learn from as much as the curriculum.</p>
+        </div>
+        <div class="row">
+          <h3>An action plan for your own organization</h3>
+          <p>The point of the program is implementation, not theory. The faculty work through
+          your plan with you as the program runs, so what you take away is built around your
+          organization and ready to act on. You leave with the plan, not just a certificate.</p>
+        </div>
+        <div class="row">
+          <h3>And you can build it yourself</h3>
+          <p>You build a working prototype with your own hands, using AI tools, with no
+          engineering background needed. Understanding what your teams are building is one
+          thing. Having built something yourself is another.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ THE PROGRAM ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Open for applications</p>
+      <div class="prog-feature">
+        <div>
+          <h2 class="display h3">The Chief AI Officer Program</h2>
+          <p class="body" style="margin:14px 0 0;">
+            For senior data and AI leaders moving into the chief seat. Led by
+            <strong>Carlos Escapa</strong>, who led AI and machine learning practice at AWS, with
+            <strong>Gregory La Blanc</strong> of UC Berkeley.
+          </p>
+          <div class="facts" style="margin-top:22px;">
+            <span>16 live sessions</span>
+            <span>Starts 5 October 2026</span>
+            <span>30 seats</span>
+            <span>$6,500</span>
+          </div>
+          <div class="btnrow" style="margin-top:26px;">
+            <a href="/programs/chief-ai-officer" class="btn btn--solid">Program details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ MASTERCLASSES ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Start here</p>
+      <h2 class="display h3">Join a masterclass</h2>
+      <p class="body" style="margin:14px 0 30px;">
+        Free, live, forty-five minutes. Our faculty teaching a real session rather than running
+        a sales webinar. The fastest way to see how we teach before committing to a program.
+      </p>
+
+      <div style="max-width:640px;">
+        <MasterclassCard mc={nextMasterclass} />
+      </div>
+
+      <p style="margin-top:22px;"><a href="/masterclasses" class="more">See all masterclasses →</a></p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FACULTY PREVIEW ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Who teaches</p>
+      <h2 class="display h3" style="margin-bottom:16px;">The people teaching.</h2>
+      <p class="body" style="margin-bottom:28px;">
+        Operators who have run AI at scale, the practitioners defining the field, and
+        university faculty who study it.
+      </p>
+      <div class="grid grid--3">
+        <div class="card person">
+          <Portrait src="/faculty/carlos-escapa-sq.jpg" name="Carlos Escapa" size="md" />
+          <h3>Carlos Escapa</h3>
+          <p class="dim">Program Lead · formerly AWS and Meta</p>
+        </div>
+        <div class="card person">
+          <Portrait src="/faculty/gregory-la-blanc.jpg" name="Gregory La Blanc" size="md" />
+          <h3>Gregory La Blanc</h3>
+          <p class="dim">Faculty Director · UC Berkeley</p>
+        </div>
+        <div class="card person">
+          <Portrait src="/faculty/alex-dang.jpg" name="Alex Dang" size="md" />
+          <h3>Alex Dang</h3>
+          <p class="dim">Guest practitioner · co-author of The Venture Mindset, McKinsey and Amazon</p>
+        </div>
+      </div>
+      <p style="margin-top:22px;"><a href="/faculty" class="more">All faculty →</a></p>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(56px, 9vw, 108px); padding-bottom: clamp(48px, 7vw, 84px); }
+  .hero-lede { margin-top: 0; }
+  .hero-btns { margin-top: 32px; }
+
+  /* Headline runs full width; the row under it splits so the copy is not
+     sitting beside 480px of nothing on a laptop screen. */
+  .hero-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.85fr);
+    gap: 30px 56px;
+    align-items: start;
+    margin-top: 30px;
+  }
+  @media (max-width: 900px) { .hero-split { grid-template-columns: 1fr; } }
+
+  .whatsnext {
+    border: 1px solid var(--line-2);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 22px 24px 8px;
+  }
+  .whatsnext .label { display: block; margin-bottom: 4px; }
+
+  .wn-item {
+    display: block;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .whatsnext .wn-item:last-child { border-bottom: 0; }
+  .wn-when {
+    display: block; font-family: var(--font-mono); font-size: .66rem;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--signal);
+    font-weight: 600;
+  }
+  .wn-what {
+    display: block; font-family: var(--font-display); font-weight: 700;
+    font-size: 1rem; letter-spacing: -.014em; line-height: 1.2;
+    color: var(--ink); margin-top: 5px;
+  }
+  .wn-meta { display: block; font-size: .8rem; color: var(--mid); margin-top: 4px; }
+  .wn-item:hover .wn-what { color: var(--signal); }
+  .hero-cred { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line-2); }
+
+  .prog-feature { background: var(--surface); border: 1px solid var(--line);
+    border-left: 3px solid var(--signal); border-radius: 4px; padding: 34px; }
+
+  .mc { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 26px; }
+  .mc h3 { margin: 10px 0 8px; }
+  .mc-meta { margin: 0; color: var(--ink-2); font-size: .92rem; }
+  .person p { font-size: .86rem; }
+
+  .more { font-weight: 650; font-size: .9rem; color: var(--signal); text-decoration: none; }
+  .more:hover { text-decoration: underline; }
+</style>

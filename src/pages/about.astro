@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About">
+  <section class="hero">
+    <div class="shell shell--narrow">
+      <p class="eyebrow">About</p>
+      <h1 class="display h2">Why this exists</h1>
+      <div class="body" style="margin-top:26px; font-size:1.06rem;">
+        <p>Executive education has a structural problem. The university's name is on the
+        certificate, but the person teaching is rarely the person who built the thing being
+        taught. Programs are delivered by platforms, at scale, by facilitators working from
+        someone else's material.</p>
+        <p>We started from the other end. Find the people who actually defined a field, build
+        a program around them, keep the cohort small enough that participants get real
+        access, and put their names rather than an institution's on the work.</p>
+        <p><span class="todo">Founding line: who started it, when, and why.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section>
+    <div class="shell">
+      <div class="grid grid--3">
+        <div class="card"><h3>Faculty first</h3><p>The program is designed around the person, not the other way round.</p></div>
+        <div class="card"><h3>Small by design</h3><p>Around thirty seats. Access is the product.</p></div>
+        <div class="card"><h3>Useful on Monday</h3><p>You leave with a plan for your own organization, not a certificate alone.</p></div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>.hero { padding-top: clamp(48px, 7vw, 84px); }</style>

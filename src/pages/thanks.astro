@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Thank you" description="We have your details.">
+  <section class="hero">
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Received</p>
+      <h1 class="display h2">Thank you.</h1>
+      <p class="lede" style="margin-top:22px;">
+        We have your details and will be in touch from
+        <strong>info@siliconvalleyfaculty.com</strong>. If you do not hear from us within a
+        few days, check your spam folder before assuming we forgot.
+      </p>
+      <div class="btnrow" style="margin-top:32px;">
+        <a href="/programs/chief-ai-officer" class="btn btn--solid">The Chief AI Officer Program</a>
+        <a href="/" class="btn btn--ghost">Back to the homepage</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(64px, 10vw, 120px); padding-bottom: clamp(64px, 10vw, 120px); }
+</style>

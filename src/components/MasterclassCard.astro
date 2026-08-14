@@ -1,0 +1,83 @@
+---
+import Portrait from './Portrait.astro';
+
+/**
+ * Masterclass card. Two states:
+ *   dated   -> "Save my seat"
+ *   undated -> "Join the waitlist", and we send the last recording on signup
+ */
+const { mc, showBlurb = true } = Astro.props;
+const dated = Boolean(mc.date);
+
+// Three states, softest commitment last:
+//   dated   -> exact slot, "Save my seat"
+//   window  -> month known, "Sign up for date and information"
+//   neither -> "Join the waitlist"
+const eyebrow = dated
+  ? 'Live'
+  : mc.window
+    ? `Next open class in ${mc.window}`
+    : 'Next date to be announced';
+
+const cta = dated
+  ? 'Save my seat'
+  : mc.window
+    ? 'Sign up for date and information'
+    : 'Join the waitlist';
+---
+
+<article class="mc-card">
+  <p class="label">{eyebrow} · {mc.program}</p>
+
+  <h3 class="display mc-title">{mc.title}</h3>
+
+  {showBlurb && mc.blurb && <p class="mc-blurb">{mc.blurb}</p>}
+
+  <div class="mc-who">
+    <Portrait src={mc.photo} name={mc.faculty} size="sm" />
+    <div>
+      <span class="mc-name">{mc.faculty}</span>
+      <span class="mc-role">{mc.facultyRole}</span>
+    </div>
+  </div>
+
+  <div class="mc-facts">
+    {dated
+      ? <span>{mc.date}</span>
+      : mc.window
+        ? <span>{mc.window} · date to be confirmed</span>
+        : <span class="todo">date to be set</span>}
+    <span>{mc.duration}</span>
+    <span>Free</span>
+  </div>
+
+  <a href="/masterclasses#signup" class="btn btn--solid">{cta}</a>
+</article>
+
+<style>
+  .mc-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--signal);
+    border-radius: 4px;
+    padding: 28px;
+  }
+  .mc-title {
+    font-size: var(--step-2);
+    line-height: 1.08;
+    margin: 10px 0 0;
+  }
+  .mc-blurb { margin: 12px 0 0; color: var(--ink-2); font-size: .93rem; max-width: 52ch; }
+
+  .mc-who { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+  .mc-name { display: block; font-weight: 700; font-size: .9rem; color: var(--ink); }
+  .mc-role { display: block; font-size: .78rem; color: var(--mid); }
+
+  .mc-facts {
+    display: flex; flex-wrap: wrap; gap: 8px 22px;
+    margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-family: var(--font-mono); font-size: .68rem;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--mid);
+  }
+  .mc-card .btn { margin-top: 20px; }
+</style>

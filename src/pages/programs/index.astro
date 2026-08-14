@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const live = [
+  {
+    title: 'The Chief AI Officer Program',
+    lead: 'Carlos Escapa and Gregory La Blanc',
+    blurb: 'For senior data and AI leaders moving into the chief seat. Strategy, organization, governance, and an optional track where you build.',
+    href: '/programs/chief-ai-officer',
+    status: 'Applications open',
+    format: 'Online, live',
+  },
+];
+
+const onRequest = [
+  {
+    title: 'AI for the iGaming Industry',
+    lead: 'Gregory La Blanc',
+    blurb: 'A private executive program for operators and leaders in the iGaming industry, built specifically around how the sector works. Run on request for a single organization or a closed group.',
+    cert: 'UC Berkeley certified',
+    berkeley: true,
+  },
+];
+
+// Faculty names go in once each has agreed. Until then the card runs without one.
+const pipeline = [
+  { title: 'The Future of Work in the Age of AI',  lead: null },
+  { title: 'Design in the World of AI',            lead: null },
+  { title: "Solving the World's Biggest Problems", lead: null },
+];
+---
+
+<Layout title="Programs">
+
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Programs</p>
+      <h1 class="display h2">Each one convened with the people who defined its field.</h1>
+      <p class="lede" style="margin-top:22px;">
+        We start from the faculty, not the syllabus. Find the person who actually built
+        something, design the program around them, and keep the cohort small enough that
+        participants get real access.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Open for applications</p>
+      {live.map((p) => (
+        <article class="prog prog--live">
+          <div>
+            <h2 class="display h3">{p.title}</h2>
+            <p class="prog-lead">with {p.lead}</p>
+            <p class="body" style="margin:14px 0 0;">{p.blurb}</p>
+            <div class="facts" style="margin-top:20px;">
+              <span>Starts 5 October 2026</span>
+              <span>{p.format}</span>
+              <span>30 seats</span>
+              <span>$6,500</span>
+              <span>{p.status}</span>
+            </div>
+          </div>
+          <div class="btnrow" style="margin-top:24px;">
+            <a href={p.href} class="btn btn--solid">Program details</a>
+            <a href="/masterclasses" class="btn btn--ghost">Join a masterclass</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="shell">
+      <p class="eyebrow">By request</p>
+      {onRequest.map((p) => (
+        <article class="prog">
+          <h2 class="display h4">{p.title}</h2>
+          <p class="prog-lead">with {p.lead}</p>
+          <p class="body" style="margin:12px 0 0;">{p.blurb}</p>
+          <p class={p.berkeley ? 'cert cert--ucb' : 'cert'}>{p.cert}</p>
+          <div class="facts" style="margin-top:18px;">
+            <span>Private program</span>
+          </div>
+          <div class="btnrow" style="margin-top:20px;">
+            <a href="/apply" class="btn btn--ghost">Request information</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section>
+    <div class="shell">
+      <p class="eyebrow">In development</p>
+      <h2 class="display h3" style="margin-bottom:10px;">What's coming.</h2>
+      <p class="body" style="margin-bottom:28px;">
+        Register interest and we'll tell you when dates are set. No waiting list fee, no obligation.
+      </p>
+
+      <div class="grid grid--3">
+        {pipeline.map((p) => (
+          <div class="card pipe">
+            <h3>{p.title}</h3>
+            {p.lead
+              ? <p class="dim">with {p.lead}</p>
+              : <p class="dim">Faculty to be announced</p>}
+            <p class="pipe-note">In development</p>
+            <a href="/apply" class="more">Register interest →</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(48px, 7vw, 84px); }
+
+  .prog { background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+    padding: 32px; margin-top: 20px; }
+  .prog--live { border-left: 3px solid var(--signal); }
+  .prog-lead { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--mid); margin: 10px 0 0; }
+
+
+  .cert { display: inline-block; margin: 16px 0 0; padding: 6px 12px; border-radius: 3px;
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em;
+    text-transform: uppercase; background: var(--bone); border: 1px solid var(--line-2);
+    color: var(--ink-2); }
+  .cert--ucb { background: #11121408; border-color: var(--ink); color: var(--ink); font-weight: 700; }
+
+  .pipe h3 { font-size: 1.05rem; margin-bottom: 8px; }
+  .pipe .dim { font-size: .85rem; margin-bottom: 12px; }
+  .pipe-note { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--faint); margin: 0 0 14px; }
+  .more { font-weight: 650; font-size: .88rem; color: var(--signal); text-decoration: none; }
+  .more:hover { text-decoration: underline; }
+</style>

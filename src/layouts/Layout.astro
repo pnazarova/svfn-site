@@ -1,0 +1,224 @@
+---
+import '../styles/global.css';
+import Mark from '../components/Mark.astro';
+
+const { title, description = 'Executive programs for senior leaders, taught by the people building the field.' } = Astro.props;
+const path = Astro.url.pathname;
+const isOn = (p) => path === p || (p !== '/' && path.startsWith(p));
+const canonical = new URL(path, Astro.site ?? 'https://siliconvalleyfaculty.com').href;
+
+const nav = [
+  {
+    href: '/programs',
+    label: 'Programs',
+    children: [
+      { href: '/programs/chief-ai-officer', label: 'Chief AI Officer Program', note: 'Applications open' },
+      { href: '/programs',                  label: 'All programs' },
+    ],
+  },
+  { href: '/masterclasses', label: 'Masterclasses' },
+  { href: '/faculty',       label: 'Faculty' },
+  { href: '/teach',         label: 'Teach with us' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title} · The Silicon Valley Faculty Network</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Silicon Valley Faculty Network" />
+  <meta property="og:url" content={canonical} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <!-- TODO: og:image (1200x630 social preview card), analytics -->
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: 'The Silicon Valley Faculty Network',
+    url: 'https://siliconvalleyfaculty.com',
+    email: 'info@siliconvalleyfaculty.com',
+    description: 'Executive programs for senior leaders, taught by the people building the field.',
+  })} />
+</head>
+<body>
+
+  <header class="site-head">
+    <div class="shell head-inner">
+      <a href="/" class="lockup" aria-label="Home">
+        <Mark size={40} />
+        <span class="wordmark">The Silicon Valley<br />Faculty Network</span>
+      </a>
+
+      <nav aria-label="Main">
+        <ul class="navlist">
+          {nav.map((n) => (
+            <li class={n.children ? 'has-sub' : ''}>
+              <a href={n.href} class={isOn(n.href) ? 'on' : ''}>{n.label}</a>
+              {n.children && (
+                <ul class="submenu">
+                  {n.children.map((c) => (
+                    <li>
+                      <a href={c.href}>
+                        {c.label}
+                        {c.note && <span class="sub-note">{c.note}</span>}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+          <li><a href="/apply" class="btn btn--solid btn--nav">Apply</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-foot">
+    <div class="shell">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <Mark size={36} reversed={true} />
+          <span class="wordmark wordmark--rev">The Silicon Valley<br />Faculty Network</span>
+        </div>
+        <p class="foot-line">Executive programs taught by the people building the field.</p>
+      </div>
+
+      <div class="foot-cols">
+        <div>
+          <p class="label">Programs</p>
+          <a href="/programs">All programs</a>
+          <a href="/programs/chief-ai-officer">Chief AI Officer</a>
+        </div>
+        <div>
+          <p class="label">Institute</p>
+          <a href="/about">About</a>
+          <a href="/faculty">Faculty</a>
+          <a href="/teach">Teach with us</a>
+        </div>
+        <div>
+          <p class="label">Start here</p>
+          <a href="/masterclasses">Masterclasses</a>
+          <a href="/apply">Apply</a>
+        </div>
+        <div>
+          <p class="label">Contact</p>
+          <a href="mailto:info@siliconvalleyfaculty.com">info@siliconvalleyfaculty.com</a>
+        </div>
+      </div>
+
+      <div class="foot-legal">
+        <span>© 2026 Faculty Network LLC</span>
+        <span>·</span>
+        <a href="/privacy">Privacy</a>
+        <span>·</span>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+<style>
+  /* ---------- header ---------- */
+  .site-head {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bone) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .head-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding-top: 14px; padding-bottom: 14px;
+  }
+  .lockup { display: flex; align-items: center; gap: 13px; text-decoration: none; color: var(--ink); }
+  .wordmark {
+    font-family: var(--font-display); font-weight: 700; font-size: .78rem;
+    letter-spacing: .13em; text-transform: uppercase; line-height: 1.34;
+  }
+  .wordmark--rev { color: var(--bone); }
+
+  .navlist { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .navlist a { text-decoration: none; font-size: .84rem; font-weight: 600; color: var(--ink-2); }
+  .navlist a:hover { color: var(--ink); }
+  .navlist a.on { color: var(--signal); }
+  .btn--nav { padding: 9px 18px; font-size: .8rem; }
+  .navlist a.btn--solid { color: #fff; }
+
+  /* ---------- Programs submenu ----------
+     Opens on hover and on keyboard focus, so it works without a mouse. */
+  .has-sub { position: relative; }
+  .submenu {
+    position: absolute; top: 100%; left: -14px;
+    min-width: 250px; margin: 0; padding: 6px;
+    list-style: none;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(17,18,20,.10);
+    opacity: 0; visibility: hidden; transform: translateY(-4px);
+    transition: opacity .14s ease, transform .14s ease, visibility .14s;
+  }
+  .has-sub:hover .submenu,
+  .has-sub:focus-within .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .submenu a {
+    display: block; padding: 9px 12px; border-radius: 3px;
+    font-size: .84rem; font-weight: 600; color: var(--ink);
+  }
+  .submenu a:hover { background: var(--bone); }
+  .sub-note {
+    display: block; font-family: var(--font-mono); font-size: .6rem;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--signal); font-weight: 600; margin-top: 3px;
+  }
+
+  /* Below ~980px the single-row header runs out of room and the nav wraps
+     mid-list, which reads as broken. Stack it instead. */
+  @media (max-width: 980px) {
+    .head-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .navlist { flex-wrap: wrap; gap: 12px 20px; width: 100%; }
+    .navlist li:last-child { margin-left: auto; }
+  }
+  /* Hover menus don't work on touch. Below 980 the submenu is suppressed and
+     the Programs link goes straight to the index, which lists everything. */
+  @media (max-width: 980px) {
+    .submenu { display: none; }
+  }
+  @media (max-width: 520px) {
+    .navlist { gap: 10px 16px; }
+    .navlist a { font-size: .8rem; }
+    .navlist li:last-child { margin-left: 0; width: 100%; }
+    .navlist li:last-child a { display: block; text-align: center; }
+  }
+
+  /* ---------- footer ---------- */
+  .site-foot { background: var(--ink); color: var(--bone); padding: 60px 0 40px; margin-top: 40px; }
+  .foot-top { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 40px;
+    padding-bottom: 34px; border-bottom: 1px solid rgba(245,243,238,.14); }
+  .foot-brand { display: flex; align-items: center; gap: 13px; }
+  .foot-line { margin: 0; color: rgba(245,243,238,.7); font-size: .95rem; }
+
+  .foot-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; padding: 34px 0; }
+  .foot-cols .label { color: rgba(245,243,238,.45); margin: 0 0 12px; }
+  .foot-cols a { display: block; text-decoration: none; color: rgba(245,243,238,.85);
+    font-size: .88rem; margin-bottom: 8px; overflow-wrap: anywhere; }
+  .foot-cols a:hover { color: var(--bone); }
+  @media (max-width: 760px) { .foot-cols { grid-template-columns: repeat(2, 1fr); } }
+
+  .foot-legal { display: flex; flex-wrap: wrap; gap: 10px; font-size: .78rem;
+    color: rgba(245,243,238,.45); padding-top: 24px; border-top: 1px solid rgba(245,243,238,.14); }
+  .foot-legal a { color: rgba(245,243,238,.6); text-decoration: none; }
+</style>
