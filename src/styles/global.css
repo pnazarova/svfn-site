@@ -231,12 +231,24 @@ section { padding: clamp(48px, 8vw, 92px) 0; }
   margin: 0; color: var(--ink-2);
 }
 .cred .names {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: .95rem;
   letter-spacing: .01em;
 }
-.cred .names span { color: var(--line-2); margin: 0 6px; }
+/* Each name is its own item so the line can wrap between them. Running them
+   together with no whitespace gave the browser no break opportunity and
+   overflowed the viewport on a phone. */
+.cred .names > span { display: inline-flex; align-items: center; }
+.cred .names > span:not(:last-child)::after {
+  content: '/';
+  margin: 0 10px;
+  color: var(--line-2);
+  font-weight: 400;
+}
 
 /* ---------- TODO marker: placeholder content awaiting real input ---------- */
 .todo {
