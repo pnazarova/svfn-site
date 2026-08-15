@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import MasterclassCard from '../components/MasterclassCard.astro';
-import { masterclasses, nextMasterclass } from '../data/masterclasses.js';
+import { masterclasses } from '../data/masterclasses.js';
 import { FORM_ACCESS_KEY } from '../data/site.js';
 ---
 
@@ -9,16 +9,16 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
   <section class="hero">
     <div class="shell">
       <p class="eyebrow">Masterclasses</p>
-      <h1 class="display h2">Free, live, forty-five minutes.</h1>
+      <h1 class="display h2">Free, live, and under an hour.</h1>
       <p class="lede" style="margin-top:22px;">
         A masterclass is one session lifted out of a program and opened to everyone. Same
         material, same format, same person teaching it.
       </p>
       <p class="body" style="margin-top:18px; max-width:58ch;">
-        You spend forty-five minutes with the faculty member who leads the program, on a
+        You spend half an hour or so with the faculty member who leads the program, on a
         subject they work in. You will get a real answer to a real question, and a clear
-        sense of how they think and whether you want twenty-four more hours of it. Nobody
-        will pitch you. If the program is right for you, that will be obvious on its own.
+        sense of how they think and whether you want the whole program. Nobody will pitch
+        you. If it is right for you, that will be obvious on its own.
       </p>
     </div>
   </section>
@@ -29,13 +29,14 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
     <div class="shell">
       <p class="eyebrow">Upcoming</p>
       <div class="mc-layout">
-        {masterclasses.map((mc) => <MasterclassCard mc={mc} />)}
+        <div class="mc-list">
+          {masterclasses.map((mc) => <MasterclassCard mc={mc} />)}
+        </div>
 
         <!-- ============ SIGNUP ============ -->
         <div class="signup" id="signup">
           <p class="label">Save your seat</p>
-          <h2 class="display h4" style="margin:10px 0 6px;">{nextMasterclass.title}</h2>
-          <p class="signup-when">{nextMasterclass.date}</p>
+          <h2 class="display h4" style="margin:10px 0 14px;">Pick a session</h2>
 
           <form
             method="POST"
@@ -46,8 +47,16 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
             <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
             <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
             <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
-            <input type="hidden" name="masterclass-title" value={nextMasterclass.title} />
-
+            <div class="field">
+              <label for="mc-which">Masterclass</label>
+              <select id="mc-which" name="masterclass" required>
+                {masterclasses.map((mc) => (
+                  <option value={`${mc.title} (${mc.date ?? mc.window ?? 'date to be set'})`}>
+                    {mc.title}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div class="field">
               <label for="mc-name">Name</label>
               <input id="mc-name" name="name" required />
@@ -79,6 +88,18 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
       </div>
     </div>
   </section>
+  <script is:inline>
+    // Both cards send you to the same form, so preselect the one that was
+    // clicked. Without this a visitor can land on the form showing a
+    // different session than the card they came from.
+    (function () {
+      var sel = document.getElementById('mc-which');
+      if (!sel) return;
+      document.querySelectorAll('.mc-list .mc-cta').forEach(function (a, i) {
+        a.addEventListener('click', function () { sel.selectedIndex = i; });
+      });
+    })();
+  </script>
 </Layout>
 
 <style>
@@ -91,6 +112,12 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
     align-items: start;
   }
   @media (max-width: 900px) { .mc-layout { grid-template-columns: 1fr; } }
+
+  .mc-list { display: grid; gap: 20px; }
+
+  /* The signup box is shorter than the card column, so keep it in view
+     while the visitor reads down the list. */
+  @media (min-width: 901px) { .signup { position: sticky; top: 96px; } }
 
   .signup {
     background: var(--surface);

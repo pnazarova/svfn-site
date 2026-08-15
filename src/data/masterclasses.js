@@ -4,6 +4,8 @@
  * One source of truth, used on the home page, the masterclasses page and the
  * program page. Add one here and it appears everywhere.
  *
+ * Keep this list in date order. The home page features the first entry.
+ *
  * date   — exact date and time once confirmed. Null until then.
  * window — the month or period, shown while the exact date is still open.
  *          With a window set the card asks people to sign up to be told the
@@ -21,6 +23,18 @@ export const masterclasses = [
     program: 'Chief AI Officer Program',
     blurb:
       'What is actually working inside large organizations right now, what is not, and where the leverage is for the people accountable for it.',
+  },
+  {
+    title: 'The Nine Principles VCs Use to Pick Winners',
+    faculty: 'Alex Dang',
+    facultyRole: 'Co-author of The Venture Mindset',
+    photo: '/faculty/alex-dang.jpg',
+    duration: '30 minutes',
+    // TODO: start time and timezone still to confirm.
+    date: '21 September 2026',
+    program: 'The Venture Mindset',
+    blurb:
+      'Venture investors turn down ninety-nine ideas to back one. The nine principles behind how they choose, and what changes when you run them inside a company that already has a business to protect.',
   },
 ];
 
