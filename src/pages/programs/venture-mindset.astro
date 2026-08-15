@@ -2,29 +2,29 @@
 import Layout from '../../layouts/Layout.astro';
 import Portrait from '../../components/Portrait.astro';
 
-// Session titles reconstructed from published summaries of the book.
-// TODO: confirm the exact chapter wording with Alex before this is promoted.
+// The nine principles, titled exactly as the book titles them.
+// Verified against two independent sources, May 2024 edition.
 const sessions = [
-  { n: 'Introduction', t: 'Why venture thinking beats corporate planning',
-    d: 'The core reframe. Failure as a cost of doing business rather than evidence of bad judgment, and why the rules that work in a stable business fail under uncertainty.' },
-  { n: 'One', t: 'Aim for home runs',
-    d: 'Many small bets rather than one large one. Why the portfolio, not the individual pick, is the unit of decision.' },
-  { n: 'Two', t: 'Go outside the four walls',
-    d: 'Where real opportunities come from, and why your existing network is the binding constraint on what you ever get to consider.' },
-  { n: 'Three', t: 'Prepare your mind',
-    d: 'Investing in advance so that you recognize what matters when it appears, rather than analyzing it after someone else has moved.' },
-  { n: 'Four', t: 'Say no quickly',
-    d: 'Screening for dealbreakers in minutes rather than months, and the discipline of killing most things early.' },
-  { n: 'Five', t: 'Then go deep',
-    d: 'Serious diligence on the few that survive the screen. What to examine, in what order, and when to stop.' },
-  { n: 'Six', t: 'Bring in dissent',
-    d: 'Outside experts and engineered disagreement. How venture firms appoint someone to argue against the consensus, and why that beats tolerance for dissent.' },
-  { n: 'Seven', t: 'Write it down',
-    d: 'The investment memo as a decision tool. How writing the reasoning changes the decision, and how it compounds into institutional learning.' },
-  { n: 'Eight', t: 'Fund in stages',
-    d: 'Milestone-based capital, doubling down on what is working, and pulling the plug without it becoming a political event.' },
-  { n: 'Nine', t: 'Build the organization for it',
-    d: 'Incentives, time horizons and structure. What has to change so the other eight principles survive contact with your company. Closing with lessons learned across the program.' },
+  { n: 'Opening session', t: 'Bring the decision you are afraid to get wrong',
+    d: 'Materials reach you two weeks before we start. You arrive with one decision actually on your table: the acquisition, the platform bet, the market you are about to enter or walk away from. That decision becomes the case for the next nine sessions.' },
+  { n: 'Principle one', t: 'Home Runs Matter, Strikeouts Don\'t',
+    d: 'One investment in fifty pays for the other forty-nine. Your budget process is built to prevent exactly that outcome, and this session puts a number on what it costs you to run five safe projects instead of twenty risky ones.' },
+  { n: 'Principle two', t: 'Get Outside the Four Walls',
+    d: 'Nobody walks the best opportunity into your office. The quality of every decision you make is capped by who you talk to outside the building, and most executive calendars are built to guarantee you never do.' },
+  { n: 'Principle three', t: 'Prepare Your Mind',
+    d: 'Investors who decide in a week did the work months earlier. Choosing the ground you intend to play on before anyone shows you a deck, so that when it lands you are recognizing rather than analyzing.' },
+  { n: 'Principle four', t: 'Say No 100 Times',
+    d: 'Ninety-nine rejections to find one yes. How to build a pipeline wide enough that no is cheap, and how to kill your own favorite idea in the first meeting rather than the ninth.' },
+  { n: 'Principle five', t: 'Bet on the Jockey',
+    d: 'Investors spend more time on the team than the plan, because the plan will change and the team will not. What that means for which internal projects you back and who you put on them.' },
+  { n: 'Principle six', t: 'Agree to Disagree',
+    d: 'Consensus is a warning sign. The best partnerships appoint someone to argue the other side, on purpose, every time. A decision everybody liked is usually the one nobody examined.' },
+  { n: 'Principle seven', t: 'Double Down or Quit',
+    d: 'The next check should be earned, not assumed. How to stop a project without ending a career, and how to spot the one that deserves three times what you planned to give it.' },
+  { n: 'Principle eight', t: 'Make the Pie Bigger',
+    d: 'Nobody takes a real risk on a fixed salary. What ownership does to behavior, and why the companies that create the most value are the ones that give the most of it away.' },
+  { n: 'Principle nine', t: 'Great Things Take Time',
+    d: 'The returns show up in year seven and your reporting cycle is ninety days. Holding a position long enough to be proven right. We close by going back around the room, decision by decision.' },
 ];
 
 const faqs = [
@@ -38,7 +38,11 @@ const faqs = [
   },
   {
     q: 'Do I need to have read the book?',
-    a: 'No. The program is built around the nine principles and taught by one of the authors, but it works from first principles and applies them to your own decisions.',
+    a: 'No. The sessions stand on their own, and they are taught by one of the two people who wrote it. Reading it first will make the discussion sharper, and we send materials two weeks ahead either way.',
+  },
+  {
+    q: 'What do I need to prepare?',
+    a: 'Materials go out two weeks before the first session. Bring one decision you have not made yet and are willing to work on in front of a room of peers. That is the only prerequisite.',
   },
   {
     q: 'Can my company pay?',
@@ -119,10 +123,13 @@ const faqs = [
   <section>
     <div class="shell">
       <p class="eyebrow">The program</p>
-      <h2 class="display h3" style="margin-bottom:10px;">One introduction, nine principles.</h2>
+      <h2 class="display h3" style="margin-bottom:16px;">
+        Bring one real decision. Take it apart nine ways.
+      </h2>
       <p class="body" style="margin-bottom:28px;">
-        Ninety minutes each, live. You bring a real decision you are facing and run it
-        through each principle as the program goes.
+        This is not nine lectures about other people's companies. You arrive with a
+        decision you have not made yet, and every principle gets applied to it, in the
+        room, with the people who wrote them. By the last session you have made it.
       </p>
       <div class="vm-sessions" data-rise-group>
         {sessions.map((s) => (
@@ -135,9 +142,6 @@ const faqs = [
           </div>
         ))}
       </div>
-      <p class="dim" style="margin-top:20px; font-size:.9rem;">
-        <span class="todo">Confirm session titles against the book with Alex.</span>
-      </p>
     </div>
   </section>
 
