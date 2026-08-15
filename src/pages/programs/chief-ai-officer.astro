@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Terms from '../../components/Terms.astro';
 import Portrait from '../../components/Portrait.astro';
 import { guestsWithPhoto, guestsListed } from '../../data/guests.js';
 
@@ -65,7 +66,7 @@ const faqs = [
   },
   {
     q: 'Can my company pay?',
-    a: 'Yes. We invoice directly and provide a receipt for expensing, plus a one-page summary you can send to your manager. Team rates apply from three participants.',
+    a: 'Yes. We invoice directly, on thirty day terms, and provide a receipt for expensing plus a one-page summary you can send to your manager. A group rate applies from five participants: write to us and we will send a quote.',
   },
 ];
 ---
@@ -282,8 +283,9 @@ const faqs = [
         <div>
           <p class="eyebrow">How it runs</p>
           <p class="body">
-            Live on <span class="todo">day</span> at <span class="todo">time + timezone</span>.
-            Each session runs an hour and a half and is recorded if you miss one.
+            Live on Mondays at 16:00 Central European Time, which is 10:00 in New York
+            and 07:00 in San Francisco. Each session runs an hour and a half and is
+            recorded if you miss one.
           </p>
           <p class="body">
             On top of the sessions, an hour of office hours is available every day on
@@ -291,6 +293,11 @@ const faqs = [
           </p>
           <p class="body">
             The cohort is capped at thirty so sessions stay discussion rather than lecture.
+          </p>
+          <p class="body">
+            That slot is chosen to work for Europe, both American coasts and India in the
+            same room. It is late evening in East Asia and Australia, which is why every
+            session is recorded and office hours can be booked at any hour.
           </p>
         </div>
         <div class="labs">
@@ -303,8 +310,8 @@ const faqs = [
             track stands on its own.
           </p>
           <div class="facts" style="margin-top:18px;">
-            <span><span class="todo">N</span> labs</span>
-            <span>+<span class="todo">8</span> hours</span>
+            <span>3 labs</span>
+            <span>+4.5 hours</span>
             <span>Included</span>
           </div>
         </div>
@@ -324,12 +331,7 @@ const faqs = [
         your capstone, the certificate, and the two days in Silicon Valley. Travel,
         accommodation and meals for those days are not included.
       </p>
-      <ul class="incl">
-        <li>Team rate from three participants: <span class="todo">discount</span></li>
-        <li>Payment plan: <span class="todo">terms</span></li>
-        <li>Invoice and receipt for expensing, plus a one-pager for your manager</li>
-        <li><span class="todo">Refund and cancellation policy</span></li>
-      </ul>
+      <Terms />
     </div>
   </section>
 

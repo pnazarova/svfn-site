@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Portrait from '../../components/Portrait.astro';
+import Terms from '../../components/Terms.astro';
 
 // The nine principles, titled exactly as the book titles them.
 // Verified against two independent sources, May 2024 edition.
@@ -46,7 +47,7 @@ const faqs = [
   },
   {
     q: 'Can my company pay?',
-    a: 'Yes. We invoice directly and provide a receipt for expensing, plus a one-page summary you can send to your manager. Team rates apply from three participants.',
+    a: 'Yes. We invoice directly, on thirty day terms, and provide a receipt for expensing plus a one-page summary you can send to your manager. A group rate applies from five participants: write to us and we will send a quote.',
   },
 ];
 ---
@@ -125,7 +126,7 @@ const faqs = [
           <p class="label" style="color:rgba(245,243,238,.5)">Free · no obligation</p>
           <h2 class="display h3" style="color:var(--bone); margin-top:10px;">Try it first.</h2>
           <p style="color:rgba(245,243,238,.78); max-width:48ch; margin:14px 0 0;">
-            <strong>The Nine Principles VCs Use to Pick Winners</strong>, a thirty minute
+            <strong>The Nine Principles VCs Use to Pick Winners</strong>, a forty-five minute
             masterclass with Alex Dang on 21 September at 18:00 CET. The nine principles
             in outline, from the person who wrote them, and free.
           </p>
@@ -220,15 +221,12 @@ const faqs = [
     <div class="shell shell--narrow">
       <p class="eyebrow">Tuition</p>
       <h2 class="display h2">$4,500</h2>
-      <p class="body" style="margin:16px 0 20px;">
-        Includes all ten sessions, the recordings, and the materials.
+      <p class="body" style="margin:16px 0 24px;">
+        Includes all ten sessions, the recordings and the materials. Live on Mondays at
+        16:00 Central European Time, which is 10:00 in New York and 07:00 in San
+        Francisco. Ninety minutes each, recorded if you miss one.
       </p>
-      <ul class="incl">
-        <li>Team rate from three participants</li>
-        <li>A decision you are actually facing, worked through across the program</li>
-        <li>Invoice and receipt for expensing</li>
-        <li>Recordings if you miss a session</li>
-      </ul>
+      <Terms />
     </div>
   </section>
 
@@ -289,9 +287,6 @@ const faqs = [
   .fac h3 { margin: 4px 0 10px; }
   .fac .label { margin: 14px 0 0; }
   .fac p:last-child { color: var(--ink-2); font-size: .92rem; margin: 0; }
-
-  .incl { list-style: none; padding: 0; margin: 0; }
-  .incl li { padding: 12px 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: .95rem; }
 
   .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
   .faq summary { cursor: pointer; padding: 16px 0; font-weight: 650; font-size: 1rem; list-style: none; }

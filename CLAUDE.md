@@ -54,6 +54,7 @@ Edit data, not markup. These feed several pages at once.
 | `src/data/guests.js` | Guest practitioners. `photo` set → photo card; `photo: null` → named list row. |
 | `src/data/masterclasses.js` | Masterclasses. `date` set → "Save my seat"; `window` only → "Sign up for date"; neither → waitlist. |
 | `src/data/site.js` | Domain, contact email, Web3Forms key. |
+| `src/components/Terms.astro` | Group rate, payment, invoicing, cancellation. Shared by every program. |
 | `public/faculty/` | Portraits. Square, 400px+, face centred. |
 
 ---
@@ -111,9 +112,16 @@ That is the one piece of genuinely unclaimed ground; keep it.
 
 1. **Web3Forms key** — set it in `src/data/site.js` so the forms deliver.
    The key is designed to be public and appears in the served HTML either way.
-2. Session **day, time, timezone** and program length in **weeks** (last visible
-   placeholders, on the program page).
-3. Team discount, payment terms, refund policy.
+2. ~~Session day, time, timezone~~ set to **Mondays 16:00 Central European Time**
+   (10:00 New York, 07:00 San Francisco), the same slot for both programs.
+   Chosen to seat Europe, both US coasts and India together; East Asia is late
+   evening and covered by recordings. Needs Carlos's and Alex's confirmation.
+3. **Commercial terms are PROPOSED, not signed off.** They live in one place,
+   `src/components/Terms.astro`, and render identically on both programs:
+   group rate from five participants (quote by email, never the word discount),
+   payment in full or two parts, invoice on thirty day terms, and a
+   30/14 day refund ladder with seat transfer or one free deferral. Get these
+   agreed before the first paid enrollment.
 4. Confirm the **16 vs 17 session** count against the final curriculum.
 5. Photos for the remaining guests.
 5b. **Venture Mindset** (starts 16 November 2026). The nine session titles are

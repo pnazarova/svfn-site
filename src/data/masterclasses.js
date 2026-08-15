@@ -29,7 +29,7 @@ export const masterclasses = [
     faculty: 'Alex Dang',
     facultyRole: 'Co-author of The Venture Mindset',
     photo: '/faculty/alex-dang.jpg',
-    duration: '30 minutes',
+    duration: '45 minutes',
     date: '21 September 2026, 18:00 CET',
     program: 'The Venture Mindset',
     blurb:
