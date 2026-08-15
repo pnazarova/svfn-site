@@ -24,6 +24,8 @@ const onRequest = [
 
 // Faculty names go in once each has agreed. Until then the card runs without one.
 const pipeline = [
+  { title: 'The Venture Mindset',                  lead: null,
+    note: 'Ten live sessions on making smarter bets under uncertainty.' },
   { title: 'The Future of Work in the Age of AI',  lead: null },
   { title: 'Design in the World of AI',            lead: null },
   { title: "Solving the World's Biggest Problems", lead: null },
@@ -106,6 +108,7 @@ const pipeline = [
         {pipeline.map((p) => (
           <div class="card pipe">
             <h3>{p.title}</h3>
+            {p.note && <p class="pipe-blurb">{p.note}</p>}
             {p.lead
               ? <p class="dim">with {p.lead}</p>
               : <p class="dim">Faculty to be announced</p>}
@@ -136,6 +139,7 @@ const pipeline = [
   .cert--ucb { background: #11121408; border-color: var(--ink); color: var(--ink); font-weight: 700; }
 
   .pipe h3 { font-size: 1.05rem; margin-bottom: 8px; }
+  .pipe-blurb { font-size: .85rem; color: var(--ink-2); margin: 0 0 8px; }
   .pipe .dim { font-size: .85rem; margin-bottom: 12px; }
   .pipe-note { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em;
     text-transform: uppercase; color: var(--faint); margin: 0 0 14px; }
