@@ -1,0 +1,279 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Portrait from '../../components/Portrait.astro';
+
+// Session titles reconstructed from published summaries of the book.
+// TODO: confirm the exact chapter wording with Alex before this is promoted.
+const sessions = [
+  { n: 'Introduction', t: 'Why venture thinking beats corporate planning',
+    d: 'The core reframe. Failure as a cost of doing business rather than evidence of bad judgment, and why the rules that work in a stable business fail under uncertainty.' },
+  { n: 'One', t: 'Aim for home runs',
+    d: 'Many small bets rather than one large one. Why the portfolio, not the individual pick, is the unit of decision.' },
+  { n: 'Two', t: 'Go outside the four walls',
+    d: 'Where real opportunities come from, and why your existing network is the binding constraint on what you ever get to consider.' },
+  { n: 'Three', t: 'Prepare your mind',
+    d: 'Investing in advance so that you recognize what matters when it appears, rather than analyzing it after someone else has moved.' },
+  { n: 'Four', t: 'Say no quickly',
+    d: 'Screening for dealbreakers in minutes rather than months, and the discipline of killing most things early.' },
+  { n: 'Five', t: 'Then go deep',
+    d: 'Serious diligence on the few that survive the screen. What to examine, in what order, and when to stop.' },
+  { n: 'Six', t: 'Bring in dissent',
+    d: 'Outside experts and engineered disagreement. How venture firms appoint someone to argue against the consensus, and why that beats tolerance for dissent.' },
+  { n: 'Seven', t: 'Write it down',
+    d: 'The investment memo as a decision tool. How writing the reasoning changes the decision, and how it compounds into institutional learning.' },
+  { n: 'Eight', t: 'Fund in stages',
+    d: 'Milestone-based capital, doubling down on what is working, and pulling the plug without it becoming a political event.' },
+  { n: 'Nine', t: 'Build the organization for it',
+    d: 'Incentives, time horizons and structure. What has to change so the other eight principles survive contact with your company. Closing with lessons learned across the program.' },
+];
+
+const faqs = [
+  {
+    q: 'How much time does it take?',
+    a: 'Ten live sessions of ninety minutes each, fifteen hours in total. Every session is recorded if you miss one.',
+  },
+  {
+    q: 'Is this only for people in venture capital?',
+    a: 'No. It is for executives making decisions under uncertainty inside established companies. The principles come from how venture investors decide, and the whole point is applying them where the stakes and the constraints are different.',
+  },
+  {
+    q: 'Do I need to have read the book?',
+    a: 'No. The program is built around the nine principles and taught by one of the authors, but it works from first principles and applies them to your own decisions.',
+  },
+  {
+    q: 'Can my company pay?',
+    a: 'Yes. We invoice directly and provide a receipt for expensing, plus a one-page summary you can send to your manager. Team rates apply from three participants.',
+  },
+];
+---
+
+<Layout
+  title="The Venture Mindset"
+  description="Ten live sessions on making smarter bets under uncertainty, taught by Alex Dang, co-author of The Venture Mindset."
+>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">The Venture Mindset</p>
+      <h1 class="display h1">Make smarter bets under <span class="accent">uncertainty.</span></h1>
+      <p class="lede" style="margin-top:24px;">
+        Ten live sessions on the nine principles venture investors use to decide, taught by
+        <strong>Alex Dang</strong>, co-author of <em>The Venture Mindset</em>, with
+        <strong>Ilya Strebulaev</strong> of Stanford joining as a guest.
+      </p>
+      <div class="facts" style="margin-top:30px;">
+        <span><span class="todo">start date</span></span>
+        <span>10 sessions</span>
+        <span>15 hours live</span>
+        <span>30 seats</span>
+        <span>$4,500</span>
+      </div>
+      <div class="btnrow" style="margin-top:30px;">
+        <a href="/apply" class="btn btn--solid">Register interest</a>
+        <a href="/masterclasses" class="btn btn--ghost">Join a masterclass</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ WHY ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Why this exists</p>
+      <h2 class="display h3" style="margin-bottom:16px;">
+        Most corporate decision-making is built for a world that no longer exists.
+      </h2>
+      <p class="body" style="margin-bottom:32px;">
+        The methods that work in a predictable business fail when the future is genuinely
+        unknown: consensus, a single detailed plan, one large committed bet, and a process
+        that punishes anyone associated with a failure. Venture investors have spent decades
+        deciding under exactly those conditions, and their approach inverts almost every one
+        of those instincts.
+      </p>
+      <div class="rows" data-rise-group>
+        <div class="row">
+          <h3>You are placing bets whether you call them that or not</h3>
+          <p>Every product, hire, acquisition and AI initiative is a bet under uncertainty.
+          Most companies just make them one at a time, at full size, with no way to stop.</p>
+        </div>
+        <div class="row">
+          <h3>The principles are counterintuitive on purpose</h3>
+          <p>Reject most things quickly. Appoint someone to argue against you. Fund in
+          stages. Kill your own projects. Each of these feels wrong inside a corporate
+          process, and each is why venture returns look the way they do.</p>
+        </div>
+        <div class="row">
+          <h3>Taught by the person who wrote it</h3>
+          <p>Alex Dang co-authored the book with Stanford's Ilya Strebulaev, drawing on two
+          decades of research and his own operating years at Amazon and McKinsey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ SESSIONS ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">The program</p>
+      <h2 class="display h3" style="margin-bottom:10px;">One introduction, nine principles.</h2>
+      <p class="body" style="margin-bottom:28px;">
+        Ninety minutes each, live. You bring a real decision you are facing and run it
+        through each principle as the program goes.
+      </p>
+      <div class="vm-sessions" data-rise-group>
+        {sessions.map((s) => (
+          <div class="vm-row">
+            <span class="vm-num">{s.n}</span>
+            <div>
+              <h3 class="display vm-title">{s.t}</h3>
+              <p>{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="dim" style="margin-top:20px; font-size:.9rem;">
+        <span class="todo">Confirm session titles against the book with Alex.</span>
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FACULTY ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Faculty</p>
+      <div class="grid grid--3" style="margin-top:22px;" data-rise-group>
+        <article class="card fac">
+          <Portrait src="/faculty/alex-dang.jpg" name="Alex Dang" size="lg" />
+          <p class="label">Program Lead</p>
+          <h3 class="display h4">Alex Dang</h3>
+          <p>Co-author of <em>The Venture Mindset: How to Make Smarter Bets and
+          Achieve Extraordinary Growth</em>, a Financial Times Business Book of the
+          Month, now translated into twelve languages. Senior Advisor and former
+          Partner at McKinsey, previously a product executive at Amazon and AWS.
+          He advises large companies on building venture-style decision-making
+          inside established organizations.</p>
+        </article>
+        <article class="card fac">
+          <Portrait src="/faculty/gregory-la-blanc.jpg" name="Gregory La Blanc" size="lg" />
+          <p class="label">Faculty Director</p>
+          <h3 class="display h4">Gregory La Blanc</h3>
+          <p>Faculty at UC Berkeley, where he teaches finance, strategy and the
+          economics of information across the business, law and engineering
+          schools. He is the constant across every program we run.</p>
+        </article>
+        <article class="card fac">
+          <Portrait src={null} name="Hannes Chopra" size="lg" />
+          <p class="label">Faculty</p>
+          <h3 class="display h4">Hannes Chopra</h3>
+          <p><span class="todo">credential line needed</span></p>
+        </article>
+      </div>
+
+      <h3 class="display h4" style="margin:44px 0 16px;">Joining as a guest</h3>
+      <div class="guest-grid" data-rise-group>
+        <figure class="guest-card">
+          <Portrait src={null} name="Ilya Strebulaev" size="md" />
+          <figcaption>
+            <span class="gname">Ilya Strebulaev</span>
+            <span class="gaff">Stanford GSB · co-author of The Venture Mindset</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ PRICE ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Tuition</p>
+      <h2 class="display h2">$4,500</h2>
+      <p class="body" style="margin:16px 0 20px;">
+        Includes all ten sessions, the recordings, and the materials.
+      </p>
+      <ul class="incl">
+        <li>Team rate from three participants</li>
+        <li>A decision you are actually facing, worked through across the program</li>
+        <li>Invoice and receipt for expensing</li>
+        <li>Recordings if you miss a session</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FAQ ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Questions</p>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing">
+    <div class="shell center">
+      <h2 class="display h2" style="color:var(--bone)">Dates to be announced.</h2>
+      <p style="color:rgba(245,243,238,.78); margin:18px auto 28px; max-width:46ch;">
+        Register your interest and we will tell you when the first cohort opens.
+      </p>
+      <div class="btnrow" style="justify-content:center;">
+        <a href="/apply" class="btn btn--solid">Register interest</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(48px, 7vw, 84px); }
+
+  .vm-sessions { border-top: 1px solid var(--line-2); }
+  .vm-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 8px 40px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .vm-num {
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--signal); font-weight: 600; padding-top: 5px;
+  }
+  .vm-title { font-size: 1.15rem; letter-spacing: -.018em; margin: 0 0 6px; }
+  .vm-row p { margin: 0; color: var(--ink-2); font-size: .95rem; max-width: 62ch; }
+  @media (max-width: 720px) {
+    .vm-row { grid-template-columns: 1fr; gap: 4px; padding: 20px 0; }
+  }
+
+  .fac h3 { margin: 4px 0 10px; }
+  .fac .label { margin: 14px 0 0; }
+  .fac p:last-child { color: var(--ink-2); font-size: .92rem; margin: 0; }
+
+  .incl { list-style: none; padding: 0; margin: 0; }
+  .incl li { padding: 12px 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: .95rem; }
+
+  .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
+  .faq summary { cursor: pointer; padding: 16px 0; font-weight: 650; font-size: 1rem; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: '+'; color: var(--signal); font-weight: 700; margin-right: 12px; }
+  .faq details[open] summary::before { content: '−'; }
+  .faq p { margin: 0 0 18px 26px; color: var(--ink-2); font-size: .95rem; max-width: 60ch; }
+
+  .closing { background: var(--ink); }
+</style>

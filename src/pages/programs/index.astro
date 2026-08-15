@@ -12,6 +12,15 @@ const live = [
   },
 ];
 
+const upcoming = [
+  {
+    title: 'The Venture Mindset',
+    lead: 'Alex Dang',
+    blurb: 'The nine principles venture investors use to decide under uncertainty, applied inside established companies. Taught by the co-author of the book.',
+    href: '/programs/venture-mindset',
+  },
+];
+
 const onRequest = [
   {
     title: 'AI for the iGaming Industry',
@@ -24,8 +33,6 @@ const onRequest = [
 
 // Faculty names go in once each has agreed. Until then the card runs without one.
 const pipeline = [
-  { title: 'The Venture Mindset',                  lead: null,
-    note: 'Ten live sessions on making smarter bets under uncertainty.' },
   { title: 'The Future of Work in the Age of AI',  lead: null },
   { title: 'Design in the World of AI',            lead: null },
   { title: "Solving the World's Biggest Problems", lead: null },
@@ -68,6 +75,28 @@ const pipeline = [
           <div class="btnrow" style="margin-top:24px;">
             <a href={p.href} class="btn btn--solid">Program details</a>
             <a href="/masterclasses" class="btn btn--ghost">Join a masterclass</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="shell">
+      <p class="eyebrow">Dates to be announced</p>
+      {upcoming.map((p) => (
+        <article class="prog">
+          <h2 class="display h4">{p.title}</h2>
+          <p class="prog-lead">with {p.lead}</p>
+          <p class="body" style="margin:12px 0 0;">{p.blurb}</p>
+          <div class="facts" style="margin-top:18px;">
+            <span>10 sessions</span>
+            <span>15 hours live</span>
+            <span>30 seats</span>
+            <span>$4,500</span>
+          </div>
+          <div class="btnrow" style="margin-top:20px;">
+            <a href={p.href} class="btn btn--solid">Program details</a>
           </div>
         </article>
       ))}

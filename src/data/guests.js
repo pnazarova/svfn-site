@@ -51,6 +51,12 @@ export const guests = [
     photo: '/faculty/ricardo-baeza-yates.jpg', // source: baeza.cl
   },
   {
+    name: 'Ilya Strebulaev',
+    affiliation: 'Stanford GSB · co-author of The Venture Mindset',
+    session: 'The Venture Mindset',
+    photo: null,
+  },
+  {
     name: 'Alex Dang',
     affiliation: 'Co-author of The Venture Mindset · McKinsey, Amazon',
     session: 'From business strategy to AI strategy',
