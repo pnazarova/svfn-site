@@ -30,8 +30,7 @@ export const masterclasses = [
     facultyRole: 'Co-author of The Venture Mindset',
     photo: '/faculty/alex-dang.jpg',
     duration: '30 minutes',
-    // TODO: start time and timezone still to confirm.
-    date: '21 September 2026',
+    date: '21 September 2026, 18:00 CET',
     program: 'The Venture Mindset',
     blurb:
       'Venture investors turn down ninety-nine ideas to back one. The nine principles behind how they choose, and what changes when you run them inside a company that already has a business to protect.',
