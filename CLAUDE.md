@@ -116,13 +116,14 @@ That is the one piece of genuinely unclaimed ground; keep it.
 3. Team discount, payment terms, refund policy.
 4. Confirm the **16 vs 17 session** count against the final curriculum.
 5. Photos for the remaining guests.
-5b. **Venture Mindset** (starts 16 November 2026): confirm the nine session
-   titles against the book. Those on the page are reconstructed from published
-   summaries, not quoted. Hannes Chopra's portrait is upscaled from a 245px
-   crop of a YPO video still and is visibly soft; ask him for a real headshot.
-   Also undecided: whether the Silicon Valley gathering is included (right now
-   it is the Chief AI Officer Program's differentiator and is not mentioned
-   here).
+5b. **Venture Mindset** (starts 16 November 2026). The nine session titles are
+   the book's own chapter titles, verified. The descriptions under them are
+   ours and Alex has not seen them. Hannes Chopra's portrait is upscaled from
+   a 245px crop of a YPO video still and is visibly soft; ask him for a real
+   headshot. Undecided: whether the Silicon Valley gathering is included (right
+   now it is the Chief AI Officer Program's differentiator).
+5c. **Start time and timezone for Alex Dang's masterclass**, 21 September 2026.
+   The card and the program band show the date with no time.
 6. About page founding line.
 7. `og:image` social card, analytics.
 

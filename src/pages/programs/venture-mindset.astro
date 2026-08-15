@@ -75,7 +75,7 @@ const faqs = [
       </div>
       <div class="btnrow" style="margin-top:30px;">
         <a href="/apply" class="btn btn--solid">Apply</a>
-        <a href="/masterclasses" class="btn btn--ghost">Join a masterclass</a>
+        <a href="#masterclass" class="btn btn--ghost">Try a free masterclass</a>
       </div>
     </div>
   </section>
@@ -117,7 +117,23 @@ const faqs = [
     </div>
   </section>
 
-  <hr class="rule" />
+  <!-- ============ MASTERCLASS ============ -->
+  <section id="masterclass" class="mc-band">
+    <div class="shell">
+      <div class="mc-inner" data-rise>
+        <div>
+          <p class="label" style="color:rgba(245,243,238,.5)">Free · no obligation</p>
+          <h2 class="display h3" style="color:var(--bone); margin-top:10px;">Try it first.</h2>
+          <p style="color:rgba(245,243,238,.78); max-width:48ch; margin:14px 0 0;">
+            <strong>The Nine Principles VCs Use to Pick Winners</strong>, a thirty minute
+            masterclass with Alex Dang on 21 September. The nine principles in outline,
+            from the person who wrote them, and free.
+          </p>
+        </div>
+        <a href="/masterclasses#signup" class="btn btn--solid">Save my seat</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ SESSIONS ============ -->
   <section>
@@ -283,6 +299,10 @@ const faqs = [
   .faq summary::before { content: '+'; color: var(--signal); font-weight: 700; margin-right: 12px; }
   .faq details[open] summary::before { content: '−'; }
   .faq p { margin: 0 0 18px 26px; color: var(--ink-2); font-size: .95rem; max-width: 60ch; }
+
+  .mc-band { background: var(--ink); }
+  .mc-inner { display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 26px; }
 
   .closing { background: var(--ink); }
 </style>
