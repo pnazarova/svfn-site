@@ -19,7 +19,7 @@ their own network. Not a single course with a brand on top.
   (Global AI/ML Practice Leader) and Meta.
 - **Alex Dang** — Program Lead, The Venture Mindset. Co-author of the book with
   Stanford's Ilya Strebulaev, who joins that program as a guest. Hannes Chopra
-  also teaches on it; his credential line is still outstanding.
+  (RaSa Future Fund, formerly Allianz) also teaches on it.
 
 Legal entity: **Faculty Network LLC**. Note the brand carries "The"; the domain
 does not. That is deliberate.
@@ -116,9 +116,10 @@ That is the one piece of genuinely unclaimed ground; keep it.
 3. Team discount, payment terms, refund policy.
 4. Confirm the **16 vs 17 session** count against the final curriculum.
 5. Photos for the remaining guests.
-5b. **Venture Mindset**: Hannes Chopra's credential line, the start date, and
-   confirmation of the nine session titles against the book. The titles on the
-   page are reconstructed from published summaries, not quoted from the text.
+5b. **Venture Mindset** (starts 16 November 2026): confirm the nine session
+   titles against the book. Those on the page are reconstructed from published
+   summaries, not quoted. Hannes Chopra's portrait is upscaled from a 245px
+   crop of a YPO video still and is visibly soft; ask him for a real headshot.
    Also undecided: whether the Silicon Valley gathering is included (right now
    it is the Chief AI Officer Program's differentiator and is not mentioned
    here).

@@ -54,7 +54,7 @@ export const guests = [
     name: 'Ilya Strebulaev',
     affiliation: 'Stanford GSB · co-author of The Venture Mindset',
     session: 'The Venture Mindset',
-    photo: null,
+    photo: '/faculty/ilya-strebulaev.jpg', // source: supplied by Polina
   },
   {
     name: 'Alex Dang',

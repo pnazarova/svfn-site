@@ -18,6 +18,9 @@ const upcoming = [
     lead: 'Alex Dang',
     blurb: 'The nine principles venture investors use to decide under uncertainty, applied inside established companies. Taught by the co-author of the book.',
     href: '/programs/venture-mindset',
+    status: 'Applications open',
+    format: 'Online, live',
+    starts: 'Starts 16 November 2026',
   },
 ];
 
@@ -83,17 +86,18 @@ const pipeline = [
 
   <section style="padding-top:0;">
     <div class="shell">
-      <p class="eyebrow">Dates to be announced</p>
+      <p class="eyebrow">Also open</p>
       {upcoming.map((p) => (
         <article class="prog">
           <h2 class="display h4">{p.title}</h2>
           <p class="prog-lead">with {p.lead}</p>
           <p class="body" style="margin:12px 0 0;">{p.blurb}</p>
           <div class="facts" style="margin-top:18px;">
-            <span>10 sessions</span>
-            <span>15 hours live</span>
+            <span>{p.starts}</span>
+            <span>{p.format}</span>
             <span>30 seats</span>
             <span>$4,500</span>
+            <span>{p.status}</span>
           </div>
           <div class="btnrow" style="margin-top:20px;">
             <a href={p.href} class="btn btn--solid">Program details</a>
