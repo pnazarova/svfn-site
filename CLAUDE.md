@@ -12,7 +12,10 @@ is convened with a different lead practitioner, who teaches it and sells through
 their own network. Not a single course with a brand on top.
 
 **People**
-- **Polina Nazarova** — operator. Runs the business, the site, GTM.
+- **Polina Nazarova** — cofounder and operator. Runs the business, the site, GTM.
+  Head of Corporate Sales and Partnerships at Harbour.Space Institute of
+  Technology, Barcelona, since 2020. Naming Harbour.Space on the site is
+  approved by her.
 - **Gregory La Blanc** — Faculty Director. Faculty at UC Berkeley (Professional
   Education, College of Engineering). The constant across every program.
 - **Carlos Escapa** — Program Lead, Chief AI Officer Program. Formerly AWS
@@ -134,9 +137,8 @@ That is the one piece of genuinely unclaimed ground; keep it.
    a 245px crop of a YPO video still and is visibly soft; ask him for a real
    headshot. Undecided: whether the Silicon Valley gathering is included (right
    now it is the Chief AI Officer Program's differentiator).
-6. **About page** (`/about`, reachable from the About dropdown in the top nav).
-   Story, philosophy and team are written. Still placeholders: Polina's bio and
-   headshot, and whether to name the school she spent seven years at.
+6. ~~About page~~ done: story, philosophy, founding team and founding faculty,
+   reachable from the About dropdown in the top nav. No placeholders left on it.
 7. `og:image` social card, analytics.
 
 Placeholders render as orange dashed chips (`.todo`). Grep `class="todo"` to

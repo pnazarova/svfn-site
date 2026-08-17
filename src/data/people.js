@@ -23,9 +23,14 @@ export const founders = [
   {
     name: 'Polina Nazarova',
     role: 'Cofounder',
-    photo: null,
-    // TODO: Polina to supply 60-80 words and a headshot.
-    bio: null,
+    photo: '/faculty/polina-nazarova.jpg', // source: supplied by Polina
+    bio: `Polina has run corporate sales and partnerships at Harbour.Space Institute of
+      Technology in Barcelona since 2020, a technology and design university where the
+      courses are taught by people still doing the work. She built its business-to-business
+      function from nothing into the institution's largest revenue line, taking it from
+      seven percent of total revenue to forty-one in five years. She holds an MSc in
+      Financial Mathematics from LMU Munich and a certificate in AI leadership from UC
+      Berkeley SCET, and works in six languages.`,
   },
 ];
 
