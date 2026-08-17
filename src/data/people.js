@@ -28,13 +28,24 @@ export const founders = [
       Technology in Barcelona since 2020, a technology and design university where the
       courses are taught by people still doing the work. She built its business-to-business
       function from nothing into the institution's largest revenue line, taking it from
-      seven percent of total revenue to forty-one in five years. She holds an MSc in
-      Financial Mathematics from LMU Munich and a certificate in AI leadership from UC
-      Berkeley SCET, and works in six languages.`,
+      seven percent of total revenue to forty-one in five years. She holds a degree in
+      mathematics from LMU Munich and works in six languages.`,
   },
 ];
 
 export const foundingFaculty = [
+  {
+    name: 'Nicolas Darveau-Garneau',
+    role: 'Founding Faculty',
+    photo: '/faculty/nicolas-darveau-garneau.jpg', // source: supplied by Nicolas
+    bio: `Nicolas was Chief Evangelist at Google, where he worked with the C-suites of more
+      than a thousand of Google's largest customers on how they grow. Before that he was on
+      the founding team of MSN.com at Microsoft, cofounded four internet companies and sold
+      three, and worked at McKinsey and as a senior equity analyst at Sanford C. Bernstein.
+      He is the author of Be a Sequoia, Not a Bonsai: The Seven Growth Secrets of the
+      World's Most Successful Companies, and sits on the boards of TMX Group, iA Financial,
+      McEwen Mining and Alida.`,
+  },
   {
     name: 'Carlos Escapa',
     role: 'Program Lead · Chief AI Officer Program',
@@ -57,18 +68,6 @@ export const foundingFaculty = [
       Partner at McKinsey and was previously a product executive at Amazon and AWS. He
       advises large companies on building venture-style decision-making inside established
       organizations.`,
-  },
-  {
-    name: 'Nicolas Darveau-Garneau',
-    role: 'Founding Faculty',
-    photo: '/faculty/nicolas-darveau-garneau.jpg', // source: nicolasdarveaugarneau.com
-    bio: `Nicolas was Chief Evangelist at Google, where he worked with the C-suites of more
-      than a thousand of Google's largest customers on how they grow. Before that he was on
-      the founding team of MSN.com at Microsoft, cofounded four internet companies and sold
-      three, and worked at McKinsey and as a senior equity analyst at Sanford C. Bernstein.
-      He is the author of Be a Sequoia, Not a Bonsai: The Seven Growth Secrets of the
-      World's Most Successful Companies, and sits on the boards of TMX Group, iA Financial,
-      McEwen Mining and Alida.`,
   },
 ];
 
