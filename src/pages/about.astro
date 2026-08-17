@@ -1,36 +1,151 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Portrait from '../components/Portrait.astro';
+import { founders, foundingFaculty } from '../data/people.js';
 ---
 
-<Layout title="About">
+<Layout
+  title="About"
+  description="An independent institute built around the practitioners who defined a field, rather than around a curriculum."
+>
+
+  <!-- ============ WHY ============ -->
   <section class="hero">
     <div class="shell shell--narrow">
       <p class="eyebrow">About</p>
-      <h1 class="display h2">Why this exists</h1>
+      <h1 class="display h2">The name on the certificate is not the point.</h1>
       <div class="body" style="margin-top:26px; font-size:1.06rem;">
-        <p>Executive education has a structural problem. The university's name is on the
+        <p>Executive education has a structural problem. The institution's name is on the
         certificate, but the person teaching is rarely the person who built the thing being
         taught. Programs are delivered by platforms, at scale, by facilitators working from
-        someone else's material.</p>
-        <p>We started from the other end. Find the people who actually defined a field, build
-        a program around them, keep the cohort small enough that participants get real
-        access, and put their names rather than an institution's on the work.</p>
-        <p><span class="todo">Founding line: who started it, when, and why.</span></p>
+        someone else's material. The senior people who actually shaped a field are mostly
+        absent from the classrooms that teach it.</p>
+
+        <p>They are not unwilling. They are busy, and no one has built them a vehicle worth
+        their time. Universities are slow to appoint them and slower to pay them. Platforms
+        want their name on a recorded course, not ninety minutes of their attention with
+        thirty people who can push back.</p>
+
+        <p>We started from the other end. Find the person who actually did the work, build
+        the program around them rather than fitting them into a curriculum, keep the cohort
+        small enough that access is real, and put their name on it rather than an
+        institution's.</p>
+
+        <p><span class="todo">Founding story: the moment or the conversation that started
+        it. One paragraph, in Polina's or Greg's words.</span></p>
       </div>
     </div>
   </section>
 
   <hr class="rule" />
 
+  <!-- ============ PHILOSOPHY ============ -->
   <section>
     <div class="shell">
-      <div class="grid grid--3">
-        <div class="card"><h3>Faculty first</h3><p>The program is designed around the person, not the other way round.</p></div>
-        <div class="card"><h3>Small by design</h3><p>Around thirty seats. Access is the product.</p></div>
-        <div class="card"><h3>Useful on Monday</h3><p>You leave with a plan for your own organization, not a certificate alone.</p></div>
+      <p class="eyebrow">How we work</p>
+      <h2 class="display h3" style="margin-bottom:28px;">Four decisions we do not trade away.</h2>
+      <div class="rows" data-rise-group>
+        <div class="row">
+          <h3>Faculty first, syllabus second</h3>
+          <p>Every program starts with a person, not a topic. We find someone who defined a
+          field, then design the program around what they know and how they teach. It is why
+          the programs look different from each other, and why we cannot simply add a course
+          because there is demand for one.</p>
+        </div>
+        <div class="row">
+          <h3>Around thirty seats, on purpose</h3>
+          <p>Small is the product, not a limitation. Comparable programs delivered through
+          platforms run cohorts of several hundred. At thirty, the session stays a discussion,
+          the faculty member knows who you are, and your question gets answered rather than
+          logged.</p>
+        </div>
+        <div class="row">
+          <h3>Useful on Monday</h3>
+          <p>You arrive with a real problem from your own organization and work on it
+          throughout. You leave with a plan you can act on, and a certificate as a side
+          effect rather than the reason you came.</p>
+        </div>
+        <div class="row">
+          <h3>A house of programs, not a brand on a course</h3>
+          <p>Each program is convened with a different lead practitioner who teaches it and
+          brings their own network to it. We are the institute that makes that possible: the
+          structure, the cohort, the operations. The expertise belongs to the person whose
+          name is on the program.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FOUNDING TEAM ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Founding team</p>
+      <h2 class="display h3" style="margin-bottom:26px;">Who started it.</h2>
+      <div class="grid grid--2" data-rise-group>
+        {founders.map((p) => (
+          <article class="card person">
+            <Portrait src={p.photo} name={p.name} size="lg" />
+            <p class="label">{p.role}</p>
+            <h3 class="display h4">{p.name}</h3>
+            <p>{p.bio ?? <span class="todo">bio, 60 to 80 words</span>}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FOUNDING FACULTY ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Founding faculty</p>
+      <h2 class="display h3" style="margin-bottom:10px;">The people who agreed first.</h2>
+      <p class="body" style="margin-bottom:26px;">
+        They convene the programs, teach them, and shape what we build next.
+      </p>
+      <div class="grid grid--3" data-rise-group>
+        {foundingFaculty.map((p) => (
+          <article class="card person">
+            <Portrait src={p.photo} name={p.name} size="lg" />
+            <p class="label">{p.role}</p>
+            <h3 class="display h4">{p.name}</h3>
+            <p>{p.bio ?? <span class="todo">bio, 60 to 80 words</span>}</p>
+          </article>
+        ))}
+      </div>
+      <p class="body" style="margin-top:26px;">
+        Each program also brings guest practitioners for single sessions. They are listed on
+        the <a href="/faculty">faculty page</a> and on each program.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing">
+    <div class="shell center">
+      <h2 class="display h3" style="color:var(--bone)">Want to teach with us?</h2>
+      <p style="color:rgba(245,243,238,.78); margin:16px auto 26px; max-width:48ch;">
+        We are always looking for the person who built the thing, not the person who wrote
+        about it afterwards.
+      </p>
+      <div class="btnrow" style="justify-content:center;">
+        <a href="/teach" class="btn btn--solid">Teach with us</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
 
-<style>.hero { padding-top: clamp(48px, 7vw, 84px); }</style>
+<style>
+  .hero { padding-top: clamp(48px, 7vw, 84px); }
+  .hero .body p { margin-bottom: 18px; }
+
+  .person h3 { margin: 4px 0 10px; }
+  .person .label { margin: 14px 0 0; }
+  .person p:last-child { color: var(--ink-2); font-size: .92rem; margin: 0; }
+
+  .closing { background: var(--ink); }
+</style>

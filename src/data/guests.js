@@ -57,12 +57,6 @@ export const guests = [
     photo: '/faculty/ilya-strebulaev.jpg', // source: supplied by Polina
   },
   {
-    name: 'Alex Dang',
-    affiliation: 'Co-author of The Venture Mindset · McKinsey, Amazon',
-    session: 'From business strategy to AI strategy',
-    photo: '/faculty/alex-dang.jpg', // source: bigthink.com author page
-  },
-  {
     name: 'Esteban Arcaute',
     affiliation: 'Responsible AI · Walmart, Meta',
     session: 'Governance, ethics and regulation',

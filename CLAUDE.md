@@ -17,6 +17,9 @@ their own network. Not a single course with a brand on top.
   Education, College of Engineering). The constant across every program.
 - **Carlos Escapa** — Program Lead, Chief AI Officer Program. Formerly AWS
   (Global AI/ML Practice Leader) and Meta.
+- **Nicolas Darveau-Garneau** — Founding Faculty. Formerly Chief Evangelist at
+  Google; author of *Be a Sequoia, Not a Bonsai*. Agreed by email on
+  17 August 2026. No program assigned to him yet.
 - **Alex Dang** — Program Lead, The Venture Mindset. Co-author of the book with
   Stanford's Ilya Strebulaev, who joins that program as a guest. Hannes Chopra
   (RaSa Future Fund, formerly Allianz) also teaches on it.
@@ -53,6 +56,7 @@ Edit data, not markup. These feed several pages at once.
 |---|---|
 | `src/data/guests.js` | Guest practitioners. `photo` set → photo card; `photo: null` → named list row. |
 | `src/data/masterclasses.js` | Masterclasses. `date` set → "Save my seat"; `window` only → "Sign up for date"; neither → waitlist. |
+| `src/data/people.js` | Founders and founding faculty. Feeds /about and /faculty. |
 | `src/data/site.js` | Domain, contact email, Web3Forms key. |
 | `src/components/Terms.astro` | Group rate, payment, invoicing, cancellation. Shared by every program. |
 | `public/faculty/` | Portraits. Square, 400px+, face centred. |
@@ -130,7 +134,8 @@ That is the one piece of genuinely unclaimed ground; keep it.
    a 245px crop of a YPO video still and is visibly soft; ask him for a real
    headshot. Undecided: whether the Silicon Valley gathering is included (right
    now it is the Chief AI Officer Program's differentiator).
-6. About page founding line.
+6. **About page**: Polina's bio and headshot, and the founding story paragraph.
+   The philosophy and team sections are written; those two are placeholders.
 7. `og:image` social card, analytics.
 
 Placeholders render as orange dashed chips (`.todo`). Grep `class="todo"` to
