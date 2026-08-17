@@ -62,7 +62,12 @@ const nav = [
         <ul class="navlist">
           {nav.map((n) => (
             <li class={n.children ? 'has-sub' : ''}>
-              <a href={n.href} class={isOn(n.href) ? 'on' : ''}>{n.label}</a>
+              <a
+                href={n.href}
+                class={isOn(n.href) ? 'on' : ''}
+                aria-haspopup={n.children ? 'true' : undefined}
+                aria-expanded={n.children ? 'false' : undefined}
+              >{n.label}</a>
               {n.children && (
                 <ul class="submenu">
                   {n.children.map((c) => (
@@ -132,6 +137,30 @@ const nav = [
   </footer>
 
   <script is:inline>
+    // Below 980px there is no hover, so the Programs menu opens on tap.
+    // Above it the CSS hover rules are untouched and this does nothing.
+    (function () {
+      var mq = window.matchMedia('(max-width: 980px)');
+      var subs = [].slice.call(document.querySelectorAll('.has-sub'));
+      function close(li) {
+        li.classList.remove('is-open');
+        li.querySelector('a').setAttribute('aria-expanded', 'false');
+      }
+      subs.forEach(function (li) {
+        var link = li.querySelector('a');
+        link.addEventListener('click', function (e) {
+          if (!mq.matches) return;
+          e.preventDefault();
+          var open = li.classList.toggle('is-open');
+          link.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
+      document.addEventListener('click', function (e) {
+        subs.forEach(function (li) { if (!li.contains(e.target)) close(li); });
+      });
+      mq.addEventListener('change', function () { subs.forEach(close); });
+    })();
+
     // Reveal on scroll. Two guarantees:
     //  1. the hiding class is added by JS, so without JS everything is visible
     //  2. a safety timer reveals anything still hidden, so content can never
@@ -225,18 +254,32 @@ const nav = [
   @media (max-width: 980px) {
     .head-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
     .navlist { flex-wrap: wrap; gap: 12px 20px; width: 100%; }
-    .navlist li:last-child { margin-left: auto; }
+    .navlist > li:last-child { margin-left: auto; }
   }
-  /* Hover menus don't work on touch. Below 980 the submenu is suppressed and
-     the Programs link goes straight to the index, which lists everything. */
+  /* Hover menus don't work on touch. Below 980 the submenu stays absolutely
+     positioned, so it does not shove the nav row around, but it opens on tap
+     instead of hover. The script below adds .is-open. */
   @media (max-width: 980px) {
-    .submenu { display: none; }
+    .has-sub:hover .submenu {
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+    }
+    .has-sub.is-open .submenu,
+    .has-sub.is-open:hover .submenu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    /* caret, so it reads as a menu rather than a dead link */
+    .has-sub > a::after {
+      content: ''; display: inline-block; margin-left: 6px; vertical-align: middle;
+      border: 4px solid transparent; border-top-color: currentColor;
+      transform: translateY(2px); transition: transform .14s ease;
+    }
+    .has-sub.is-open > a::after { transform: translateY(-2px) rotate(180deg); }
   }
   @media (max-width: 520px) {
     .navlist { gap: 10px 16px; }
     .navlist a { font-size: .8rem; }
-    .navlist li:last-child { margin-left: 0; width: 100%; }
-    .navlist li:last-child a { display: block; text-align: center; }
+    .navlist > li:last-child { margin-left: 0; width: 100%; }
+    .navlist > li:last-child > a { display: block; text-align: center; }
   }
 
   /* ---------- footer ---------- */

@@ -111,7 +111,10 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
     gap: 20px;
     align-items: start;
   }
-  @media (max-width: 900px) { .mc-layout { grid-template-columns: 1fr; } }
+  /* minmax(0, 1fr), not 1fr. A 1fr track has an automatic minimum of
+     min-content, so the card was sizing the column to 415px inside a 327px
+     shell and hanging off the right edge of the phone. */
+  @media (max-width: 900px) { .mc-layout { grid-template-columns: minmax(0, 1fr); } }
 
   .mc-list { display: grid; gap: 20px; }
 
