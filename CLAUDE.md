@@ -134,8 +134,9 @@ That is the one piece of genuinely unclaimed ground; keep it.
    a 245px crop of a YPO video still and is visibly soft; ask him for a real
    headshot. Undecided: whether the Silicon Valley gathering is included (right
    now it is the Chief AI Officer Program's differentiator).
-6. **About page**: Polina's bio and headshot, and the founding story paragraph.
-   The philosophy and team sections are written; those two are placeholders.
+6. **About page** (`/about`, reachable from the About dropdown in the top nav).
+   Story, philosophy and team are written. Still placeholders: Polina's bio and
+   headshot, and whether to name the school she spent seven years at.
 7. `og:image` social card, analytics.
 
 Placeholders render as orange dashed chips (`.todo`). Grep `class="todo"` to

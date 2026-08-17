@@ -18,8 +18,16 @@ const nav = [
     ],
   },
   { href: '/masterclasses', label: 'Masterclasses' },
-  { href: '/faculty',       label: 'Faculty' },
-  { href: '/teach',         label: 'Teach with us' },
+  {
+    href: '/about',
+    label: 'About',
+    align: 'right',
+    children: [
+      { href: '/about',   label: 'Why we exist' },
+      { href: '/faculty', label: 'Faculty' },
+      { href: '/teach',   label: 'Teach with us' },
+    ],
+  },
 ];
 ---
 
@@ -69,7 +77,7 @@ const nav = [
                 aria-expanded={n.children ? 'false' : undefined}
               >{n.label}</a>
               {n.children && (
-                <ul class="submenu">
+                <ul class={n.align === 'right' ? 'submenu submenu--right' : 'submenu'}>
                   {n.children.map((c) => (
                     <li>
                       <a href={c.href}>
@@ -151,8 +159,12 @@ const nav = [
         link.addEventListener('click', function (e) {
           if (!mq.matches) return;
           e.preventDefault();
-          var open = li.classList.toggle('is-open');
-          link.setAttribute('aria-expanded', open ? 'true' : 'false');
+          var open = !li.classList.contains('is-open');
+          subs.forEach(close);
+          if (open) {
+            li.classList.add('is-open');
+            link.setAttribute('aria-expanded', 'true');
+          }
         });
       });
       document.addEventListener('click', function (e) {
@@ -238,6 +250,7 @@ const nav = [
   }
   .has-sub:hover .submenu,
   .has-sub:focus-within .submenu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .submenu--right { left: auto; right: -14px; }
   .submenu a {
     display: block; padding: 9px 12px; border-radius: 3px;
     font-size: .84rem; font-weight: 600; color: var(--ink);
