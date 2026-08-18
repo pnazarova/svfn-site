@@ -119,7 +119,11 @@ That is the one piece of genuinely unclaimed ground; keep it.
 
 1. **Web3Forms key** — set it in `src/data/site.js` so the forms deliver.
    The key is designed to be public and appears in the served HTML either way.
-2. ~~Session day, time, timezone~~ set to **Mondays 16:00 Central European Time**
+2. **Chief AI Officer starts 11 January 2027** (agreed 18 Aug). Session count
+   and cadence still OPEN: either 8 sessions of 2-3h once a week, or 1-1.5h
+   twice a week. The site still advertises 16 sessions and 24 hours live,
+   which neither option matches. Decide before 1 September.
+2b. ~~Session day, time, timezone~~ set to **Mondays 16:00 Central European Time**
    (10:00 New York, 07:00 San Francisco), the same slot for both programs.
    Chosen to seat Europe, both US coasts and India together; East Asia is late
    evening and covered by recordings. Needs Carlos's and Alex's confirmation.
