@@ -42,6 +42,10 @@ does not. That is deliberate.
 - **Push to `main` deploys.** GitHub Actions builds and publishes to Pages.
 - Domain is at **GoDaddy**: four A records to GitHub's IPs, `www` CNAME to
   `pnazarova.github.io`. `public/CNAME` holds the domain.
+- **Email** is iCloud+ Custom Email Domain on the Apple Account. MX to Apple,
+  SPF, DKIM and a GoDaddy DMARC record at `p=quarantine`. Confirmed receiving
+  20 Aug 2026. There is **no separate mailbox**: info@ and polina@ are aliases
+  that land in the existing iCloud inbox, which cost two days of hunting once.
 - **Forms use Web3Forms**, which emails submissions straight to
   info@siliconvalleyfaculty.com. GitHub Pages cannot process a form post, and
   there is deliberately no CRM. The key lives in `src/data/site.js`.
