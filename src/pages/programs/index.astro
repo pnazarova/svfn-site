@@ -7,20 +7,20 @@ const live = [
     lead: 'Carlos Escapa and Gregory La Blanc',
     blurb: 'For senior data and AI leaders moving into the chief seat. Strategy, organization, governance, and an optional track where you build.',
     href: '/programs/chief-ai-officer',
-    status: 'Applications open',
+    starts: 'Starts 11 January 2027',
     format: 'Online, live',
+    price: '$6,500',
+    status: 'Applications open',
   },
-];
-
-const upcoming = [
   {
     title: 'Inside the Deal',
     lead: 'Alex Dang and Ilya Strebulaev',
     blurb: 'How venture deals are actually built, from the term sheet to the exit waterfall. Term sheets, liquidation preferences, cap tables and dilution, worked by hand on a deal you bring.',
     href: '/programs/inside-the-deal',
-    status: 'Applications open',
-    format: 'Online, live',
     starts: 'Starts 11 January 2027',
+    format: 'Online, live',
+    price: '$4,500',
+    status: 'Applications open',
   },
 ];
 
@@ -68,39 +68,16 @@ const pipeline = [
             <p class="prog-lead">with {p.lead}</p>
             <p class="body" style="margin:14px 0 0;">{p.blurb}</p>
             <div class="facts" style="margin-top:20px;">
-              <span>Starts 11 January 2027</span>
+              <span>{p.starts}</span>
               <span>{p.format}</span>
               <span>30 seats</span>
-              <span>$6,500</span>
+              <span>{p.price}</span>
               <span>{p.status}</span>
             </div>
           </div>
           <div class="btnrow" style="margin-top:24px;">
             <a href={p.href} class="btn btn--solid">Program details</a>
             <a href="/masterclasses" class="btn btn--ghost">Join a masterclass</a>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section style="padding-top:0;">
-    <div class="shell">
-      <p class="eyebrow">Also open</p>
-      {upcoming.map((p) => (
-        <article class="prog">
-          <h2 class="display h4">{p.title}</h2>
-          <p class="prog-lead">with {p.lead}</p>
-          <p class="body" style="margin:12px 0 0;">{p.blurb}</p>
-          <div class="facts" style="margin-top:18px;">
-            <span>{p.starts}</span>
-            <span>{p.format}</span>
-            <span>30 seats</span>
-            <span>$4,500</span>
-            <span>{p.status}</span>
-          </div>
-          <div class="btnrow" style="margin-top:20px;">
-            <a href={p.href} class="btn btn--solid">Program details</a>
           </div>
         </article>
       ))}
