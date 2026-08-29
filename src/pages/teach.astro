@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { FORM_ACCESS_KEY } from '../data/site.js';
+import { FORM_ACCESS_KEY, FORMS_LIVE } from '../data/site.js';
+import FormOffline from '../components/FormOffline.astro';
 ---
 
 <Layout title="Teach with us">
@@ -45,11 +46,15 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
     <div class="shell shell--narrow">
       <p class="eyebrow">Get in touch</p>
       <h2 class="display h3" style="margin-bottom:24px;">Tell us what you'd teach.</h2>
+      {!FORMS_LIVE && <FormOffline subject="Teach with us" what="your name, your field, and the program you would teach" />}
+
+      {FORMS_LIVE && (
       <form method="POST" action="https://api.web3forms.com/submit">
             <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
             <input type="hidden" name="subject" value="Teach with us enquiry" />
             <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
             <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="hidden" name="replyto" value="email" />
             <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
         <div class="field"><label for="n">Name</label><input id="n" name="name" required /></div>
         <div class="field"><label for="e">Email</label><input id="e" type="email" name="email" required /></div>
@@ -58,6 +63,7 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
         <button type="submit" class="btn btn--solid">Send</button>
         <p class="dim" style="font-size:.78rem; margin-top:10px;">Goes straight to info@siliconvalleyfaculty.com.</p>
       </form>
+      )}
     </div>
   </section>
 </Layout>

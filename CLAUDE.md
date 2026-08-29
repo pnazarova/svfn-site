@@ -134,9 +134,13 @@ That is the one piece of genuinely unclaimed ground; keep it.
 
 1. **Web3Forms key** — set it in `src/data/site.js` so the forms deliver.
    The key is designed to be public and appears in the served HTML either way.
-   Until it is set, `/apply` hides the form and shows a mailto fallback rather
-   than posting an invalid key and losing the application. The masterclass
-   signup form on `/masterclasses` is NOT yet guarded the same way.
+   **Where mail lands is decided by the key registration, not by the code.**
+   Register the key against info@siliconvalleyfaculty.com and all three forms
+   deliver there. There are three: `/apply`, `/teach`, `/masterclasses`, all
+   sharing `FORM_ACCESS_KEY`. Until it is set, every one of them hides its form
+   and shows `FormOffline.astro` with a mailto, rather than posting an invalid
+   key and silently losing the submission. All three set `replyto` to the
+   submitter so Reply from info@ reaches the person.
 1b. **Calendly** — paste the booking URL into `BOOKING_URL` in `src/data/site.js`
    and the "Book a call" panels appear on `/apply` and both program pages.
    Empty string hides them everywhere. Deliberately a plain link, not an embed,

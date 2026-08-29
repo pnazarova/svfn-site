@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { FORM_ACCESS_KEY, FORMS_LIVE } from '../data/site.js';
 import BookACall from '../components/BookACall.astro';
+import FormOffline from '../components/FormOffline.astro';
 ---
 
 <Layout title="Apply">
@@ -17,20 +18,7 @@ import BookACall from '../components/BookACall.astro';
 
   <section style="padding-top:0;">
     <div class="shell shell--narrow">
-      {!FORMS_LIVE && (
-        <div class="applyform offline">
-          <p class="label" style="color:var(--signal)">Applications by email for now</p>
-          <h2 class="display h4" style="margin:10px 0 12px;">The form is not connected yet.</h2>
-          <p style="color:var(--ink-2); font-size:.95rem; max-width:56ch;">
-            Rather than take your details and lose them, write to us directly with your
-            name, company, role and which program you are interested in. We reply to
-            everything.
-          </p>
-          <p style="margin:18px 0 0;">
-            <a href="mailto:info@siliconvalleyfaculty.com?subject=Application" class="btn btn--solid">Email us</a>
-          </p>
-        </div>
-      )}
+      {!FORMS_LIVE && <FormOffline subject="Application" what="your name, company, role and which program you are interested in" />}
 
       {FORMS_LIVE && (
       <form method="POST" action="https://api.web3forms.com/submit" class="applyform">
@@ -38,6 +26,7 @@ import BookACall from '../components/BookACall.astro';
             <input type="hidden" name="subject" value="New application" />
             <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
             <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="hidden" name="replyto" value="email" />
             <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
         <div class="grid grid--2" style="gap:0 18px;">
           <div class="field"><label for="fn">Name</label><input id="fn" name="name" required /></div>
@@ -77,5 +66,4 @@ import BookACall from '../components/BookACall.astro';
   .hero { padding-top: clamp(48px, 7vw, 84px); padding-bottom: 28px; }
   .applyform { background: var(--surface); border: 1px solid var(--line);
     border-radius: 4px; padding: 30px; }
-  .offline { border-left: 3px solid var(--signal); }
 </style>

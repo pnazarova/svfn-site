@@ -2,7 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import MasterclassCard from '../components/MasterclassCard.astro';
 import { masterclasses } from '../data/masterclasses.js';
-import { FORM_ACCESS_KEY } from '../data/site.js';
+import { FORM_ACCESS_KEY, FORMS_LIVE } from '../data/site.js';
+import FormOffline from '../components/FormOffline.astro';
 ---
 
 <Layout title="Masterclasses" description="Free, live sessions with our faculty.">
@@ -38,6 +39,9 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
           <p class="label">Save your seat</p>
           <h2 class="display h4" style="margin:10px 0 14px;">Pick a session</h2>
 
+          {!FORMS_LIVE && <FormOffline subject="Masterclass signup" what="your name and which masterclass you want to join" />}
+
+          {FORMS_LIVE && (
           <form
             method="POST"
             action="https://api.web3forms.com/submit"
@@ -46,6 +50,7 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
             <input type="hidden" name="subject" value="Masterclass signup" />
             <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
             <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="hidden" name="replyto" value="email" />
             <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
             <div class="field">
               <label for="mc-which">Masterclass</label>
@@ -75,6 +80,7 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
               We email you the joining link and nothing else. No spam, no list sharing.
             </p>
           </form>
+          )}
         </div>
       </div>
     </div>
