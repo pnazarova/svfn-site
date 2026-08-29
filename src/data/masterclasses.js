@@ -19,7 +19,7 @@ export const masterclasses = [
     facultyRole: 'Formerly AWS and Meta',
     photo: '/faculty/carlos-escapa-sq.jpg',
     duration: '45 minutes',
-    date: '1 September 2026, 18:00 CET',
+    date: '21 September 2026, 18:00 CET',
     program: 'Chief AI Officer Program',
     blurb:
       'What is actually working inside large organizations right now, what is not, and where the leverage is for the people accountable for it.',
@@ -30,7 +30,8 @@ export const masterclasses = [
     facultyRole: 'Program Lead · Inside the Deal',
     photo: '/faculty/alex-dang.jpg',
     duration: '45 minutes',
-    date: '21 September 2026, 18:00 CET',
+    date: null,
+    window: 'October',
     program: 'Inside the Deal',
     blurb:
       'The clauses that decide who actually makes money when a company sells, and why corporate investors and founders routinely sign terms they could not explain a year later.',
