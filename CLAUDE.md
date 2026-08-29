@@ -23,9 +23,10 @@ their own network. Not a single course with a brand on top.
 - **Nicolas Darveau-Garneau** — Founding Faculty. Formerly Chief Evangelist at
   Google; author of *Be a Sequoia, Not a Bonsai*. Agreed by email on
   17 August 2026. No program assigned to him yet.
-- **Alex Dang** — Program Lead, The Venture Mindset. Co-author of the book with
-  Stanford's Ilya Strebulaev, who joins that program as a guest. Hannes Chopra
-  (RaSa Future Fund, formerly Allianz) also teaches on it.
+- **Alex Dang** — Program Lead, Inside the Deal. Coauthor of *The Venture
+  Mindset* with Stanford's **Ilya Strebulaev**, who now teaches on the program
+  rather than guesting. Hannes Chopra (RaSa Future Fund, formerly Allianz)
+  also teaches on it.
 
 Legal entity: **Faculty Network LLC**. Note the brand carries "The"; the domain
 does not. That is deliberate.
@@ -107,6 +108,16 @@ Avoid LinkedIn (its terms prohibit it) and press or event photography, where
 the copyright belongs to the publication or photographer rather than the
 subject. When in doubt, ask the person for a headshot.
 
+**Do not sell the book.** Alex and Ilya have a guideline against selling *The
+Venture Mindset* or its nine principles below a price point. In August 2026 the
+program was rebuilt from those principles into **Inside the Deal**, a hands-on
+venture program: term sheets, liquidation preferences, cap tables, dilution,
+governance. Alex's read is that demand is for hands-on venture work, not
+corporate strategy. Source material is Ilya's published Venture Capital 101
+series and the Strebulaev-Jackson ranking, never the book. Naming Alex as
+coauthor in his bio is fine; building a session on the principles is not.
+`/programs/venture-mindset` redirects to `/programs/inside-the-deal`.
+
 **Cohort size is ~30.** Small is the product, not a limitation. Research showed
 platform-delivered competitors run 150–400; live faculty-led seminars cap small.
 
@@ -139,12 +150,12 @@ That is the one piece of genuinely unclaimed ground; keep it.
    agreed before the first paid enrollment.
 4. Confirm the **16 vs 17 session** count against the final curriculum.
 5. Photos for the remaining guests.
-5b. **Venture Mindset** (starts 16 November 2026). The nine session titles are
-   the book's own chapter titles, verified. The descriptions under them are
-   ours and Alex has not seen them. Hannes Chopra's portrait is upscaled from
-   a 245px crop of a YPO video still and is visibly soft; ask him for a real
-   headshot. Undecided: whether the Silicon Valley gathering is included (right
-   now it is the Chief AI Officer Program's differentiator).
+5b. **Inside the Deal** (published as starting 16 November 2026, which is now
+   unrealistic given the rebuild; move it to the Jan/Feb term). The ten
+   sessions are ours, drawn from Ilya's public material, and neither Alex nor
+   Ilya has reviewed them. Confirm Hannes Chopra is still on the program now
+   that the subject has changed, and get a real headshot from him: his current
+   portrait is upscaled from a 245px crop of a video still.
 6. ~~About page~~ done: story, philosophy, founding team and founding faculty,
    reachable from the About dropdown in the top nav. No placeholders left on it.
 7. `og:image` social card, analytics.

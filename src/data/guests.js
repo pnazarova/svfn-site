@@ -51,12 +51,6 @@ export const guests = [
     photo: '/faculty/ricardo-baeza-yates.jpg', // source: baeza.cl
   },
   {
-    name: 'Ilya Strebulaev',
-    affiliation: 'Stanford GSB · co-author of The Venture Mindset',
-    session: 'The Venture Mindset',
-    photo: '/faculty/ilya-strebulaev.jpg', // source: supplied by Polina
-  },
-  {
     name: 'Esteban Arcaute',
     affiliation: 'Responsible AI · Walmart, Meta',
     session: 'Governance, ethics and regulation',

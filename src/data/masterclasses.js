@@ -25,15 +25,15 @@ export const masterclasses = [
       'What is actually working inside large organizations right now, what is not, and where the leverage is for the people accountable for it.',
   },
   {
-    title: 'The Nine Principles VCs Use to Pick Winners',
+    title: 'What a Term Sheet Actually Says',
     faculty: 'Alex Dang',
-    facultyRole: 'Co-author of The Venture Mindset',
+    facultyRole: 'Program Lead · Inside the Deal',
     photo: '/faculty/alex-dang.jpg',
     duration: '45 minutes',
     date: '21 September 2026, 18:00 CET',
-    program: 'The Venture Mindset',
+    program: 'Inside the Deal',
     blurb:
-      'Venture investors turn down ninety-nine ideas to back one. The nine principles behind how they choose, and what changes when you run them inside a company that already has a business to protect.',
+      'The clauses that decide who actually makes money when a company sells, and why corporate investors and founders routinely sign terms they could not explain a year later.',
   },
 ];
 

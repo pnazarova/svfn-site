@@ -1,0 +1,303 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Portrait from '../../components/Portrait.astro';
+import Terms from '../../components/Terms.astro';
+
+/**
+ * Inside the Deal.
+ *
+ * Rebuilt August 2026. This program was previously built around the nine
+ * principles of The Venture Mindset. Alex and Ilya asked us not to sell the
+ * book or its principles at this price point, and Alex's read is that demand
+ * is for hands-on venture work rather than corporate strategy. The curriculum
+ * below is drawn from Ilya's published Venture Capital 101 series and the
+ * Strebulaev-Jackson venture ranking, not from the book.
+ *
+ * Sources for the underlying material:
+ *   ilyastrebulaev.substack.com/p/venture-capital-101-introduction
+ *   ilyastrebulaev.substack.com/p/the-2026-venture-ranking-the-top-1f6
+ */
+const sessions = [
+  { n: 'One', t: 'Where the returns actually come from',
+    d: 'Thirty years, 230,000 investments and a return distribution so skewed that the median deal is irrelevant. Why one position in fifty carries a fund, and why every clause in the rest of this program exists to protect that one position. You arrive with a live or recent deal; it becomes your case for the next nine sessions.' },
+  { n: 'Two', t: 'The term sheet, line by line',
+    d: 'Original issue price, common stock, convertible preferred. What each clause is actually for, who wrote it, and which three lines decide most of the outcome. We read a real term sheet together rather than a summary of one.' },
+  { n: 'Three', t: 'Liquidation preferences',
+    d: 'One times, participating, non-participating, stacked. The clause that decides who gets paid what when the company sells, and the arithmetic that shows a founder walking away with nothing from a headline that reads like a success.' },
+  { n: 'Four', t: 'Cap tables and dilution',
+    d: 'Build one. Model ownership through a seed, an A and a B, with an option pool, and watch what happens to a position that nobody defended. Most people who lose money in venture lose it here, quietly, over three rounds.' },
+  { n: 'Five', t: 'Valuation, and why the number is not the number',
+    d: 'Pre-money, post-money, and why a private valuation is not comparable to a public one. Preferred stock carries downside protection that the headline number ignores, which is why serious analysis discounts it before comparing anything.' },
+  { n: 'Six', t: 'What happens in the next round',
+    d: 'Pro rata, pay to play, down rounds, bridges, SAFEs and convertible notes. The rights you negotiated in round one are worth exactly as much as your ability to keep exercising them in round three.' },
+  { n: 'Seven', t: 'Governance, boards and control',
+    d: 'Board composition, protective provisions, and the gap between owning a company and controlling one. The ranking data is clear that the investors who create the most value are the ones in the room, not the ones on the cap table.' },
+  { n: 'Eight', t: 'Diligence, and how fast to say no',
+    d: 'What to check, in what order, and when to stop. Screening a hundred opportunities to fund one is a process problem, not a judgment problem, and it is the part corporate investors get wrong most often.' },
+  { n: 'Nine', t: 'Who actually wins',
+    d: 'The Strebulaev-Jackson ranking of the top hundred US firms, and what separates the first from the hundredth. Ownership concentration, staying power and value added, measured across three decades rather than asserted.' },
+  { n: 'Ten', t: 'Your deal, worked through',
+    d: 'Back around the room. You present the deal you brought, with what you would now negotiate differently and why, to the faculty and to a room of people who have spent nine sessions learning to pull it apart.' },
+];
+
+const faqs = [
+  {
+    q: 'Is this the book?',
+    a: 'No. Alex and Ilya wrote The Venture Mindset about how venture investors decide. This program is about how venture deals are actually built: term sheets, preferences, cap tables and the mechanics that decide who makes money. Reading the book is not a prerequisite and will not cover the same ground.',
+  },
+  {
+    q: 'Who is it for?',
+    a: 'People who sit at a venture deal table and want to stop taking the terms on trust. Corporate venture and corporate development teams, family offices, angels, emerging fund managers, and operators moving into investing. Founders raising money get the same value from the other side of the table.',
+  },
+  {
+    q: 'Do I need a finance background?',
+    a: 'No. We build the arithmetic from the beginning, and you will model a cap table yourself rather than watch someone else do it. If you can read a spreadsheet you have enough.',
+  },
+  {
+    q: 'How much time does it take?',
+    a: 'Ten live sessions of ninety minutes each, fifteen hours in total. Every session is recorded if you miss one.',
+  },
+  {
+    q: 'What do I need to prepare?',
+    a: 'Materials go out two weeks before the first session. Bring one deal you are looking at now, or one you did recently and still think about. Anything you bring stays in the room.',
+  },
+];
+---
+
+<Layout
+  title="Inside the Deal"
+  description="Ten live sessions on how venture deals are actually built, taught by Alex Dang and Ilya Strebulaev of Stanford."
+>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Inside the Deal</p>
+      <h1 class="display h1">Stop taking the terms <span class="accent">on trust.</span></h1>
+      <p class="lede" style="margin-top:24px;">
+        Ten live sessions on how venture deals are actually built, from the term sheet to the
+        exit waterfall, taught by <strong>Alex Dang</strong> and
+        <strong>Ilya Strebulaev</strong> of Stanford.
+      </p>
+      <div class="facts" style="margin-top:30px;">
+        <span>Starts 16 November 2026</span>
+        <span>10 sessions</span>
+        <span>15 hours live</span>
+        <span>30 seats</span>
+        <span>$4,500</span>
+      </div>
+      <div class="btnrow" style="margin-top:30px;">
+        <a href="/apply" class="btn btn--solid">Apply</a>
+        <a href="#masterclass" class="btn btn--ghost">Try a free masterclass</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ WHY ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Why this exists</p>
+      <h2 class="display h3" style="margin-bottom:16px;">
+        Most people at a venture deal table are reading a document someone else wrote for
+        someone else's benefit.
+      </h2>
+      <p class="body" style="margin-bottom:32px;">
+        Corporate venture arms, family offices and first-time investors sign terms every
+        month that they could not explain a year later. Not because they are careless, but
+        because nobody teaches the mechanics. The strategy books are plentiful. The
+        arithmetic is not.
+      </p>
+      <div class="rows" data-rise-group>
+        <div class="row">
+          <h3>The clauses are where the money is</h3>
+          <p>A liquidation preference decides who gets paid when a company sells. A pro rata
+          right decides whether your position survives to that point. These are not details
+          around the deal. They are the deal.</p>
+        </div>
+        <div class="row">
+          <h3>Hands on, not theoretical</h3>
+          <p>You read a real term sheet, build a real cap table, and model what happens to
+          your own position through three rounds. You bring a deal on day one and present it
+          on day ten.</p>
+        </div>
+        <div class="row">
+          <h3>Built on evidence, not war stories</h3>
+          <p>Ilya's research covers 230,000 investments by nearly 13,000 investors over
+          thirty years. When we say something works, we can show you across three decades
+          how often it did.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MASTERCLASS ============ -->
+  <section id="masterclass" class="mc-band">
+    <div class="shell">
+      <div class="mc-inner" data-rise>
+        <div>
+          <p class="label" style="color:rgba(245,243,238,.5)">Free · no obligation</p>
+          <h2 class="display h3" style="color:var(--bone); margin-top:10px;">Try it first.</h2>
+          <p style="color:rgba(245,243,238,.78); max-width:48ch; margin:14px 0 0;">
+            <strong>What a Term Sheet Actually Says</strong>, a forty-five minute masterclass
+            with Alex Dang on 21 September at 18:00 CET. One document, read properly, and
+            free.
+          </p>
+        </div>
+        <a href="/masterclasses#signup" class="btn btn--solid">Save my seat</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SESSIONS ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">The program</p>
+      <h2 class="display h3" style="margin-bottom:16px;">
+        Bring a deal. Take it apart.
+      </h2>
+      <p class="body" style="margin-bottom:28px;">
+        You arrive with a deal you are looking at now, or one you did recently and still
+        think about. Every session is applied to it, and on the last day you present what
+        you would negotiate differently.
+      </p>
+      <div class="vm-sessions" data-rise-group>
+        {sessions.map((s) => (
+          <div class="vm-row">
+            <span class="vm-num">Session {s.n.toLowerCase()}</span>
+            <div>
+              <h3 class="display vm-title">{s.t}</h3>
+              <p>{s.d}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FACULTY ============ -->
+  <section>
+    <div class="shell">
+      <p class="eyebrow">Faculty</p>
+      <div class="grid grid--3" style="margin-top:22px;" data-rise-group>
+        <article class="card fac">
+          <Portrait src="/faculty/alex-dang.jpg" name="Alex Dang" size="lg" />
+          <p class="label">Program Lead</p>
+          <h3 class="display h4">Alex Dang</h3>
+          <p>Senior Advisor and former Partner at McKinsey, previously a product executive
+          at Amazon and AWS. He coauthored <em>The Venture Mindset</em> with Ilya
+          Strebulaev, and advises large companies on how they invest in and buy early
+          stage businesses.</p>
+        </article>
+        <article class="card fac">
+          <Portrait src="/faculty/ilya-strebulaev.jpg" name="Ilya Strebulaev" size="lg" />
+          <p class="label">Faculty</p>
+          <h3 class="display h4">Ilya Strebulaev</h3>
+          <p>Professor of Finance at Stanford Graduate School of Business and the founder of
+          its Venture Capital Initiative. His research covers 230,000 investments by nearly
+          13,000 investors across thirty years, and produced the Strebulaev-Jackson ranking
+          of US venture firms.</p>
+        </article>
+        <article class="card fac">
+          <Portrait src="/faculty/hannes-chopra.jpg" name="Hannes Chopra" size="lg" />
+          <p class="label">Faculty</p>
+          <h3 class="display h4">Hannes Chopra</h3>
+          <p>CEO of RaSa Future Fund, which invests in early stage companies in financial
+          services and insurance. Twenty years in leadership at Allianz Group, where he was
+          CEO in Russia and regional head of Eurasia, and built Sberbank Insurance from
+          scratch for Russia's largest bank.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ PRICE ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Tuition</p>
+      <h2 class="display h2">$4,500</h2>
+      <p class="body" style="margin:16px 0 24px;">
+        Includes all ten sessions, the recordings and the materials. Live on Mondays at
+        16:00 Central European Time, which is 10:00 in New York and 07:00 in San Francisco.
+        Ninety minutes each, recorded if you miss one.
+      </p>
+      <Terms />
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FAQ ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Questions</p>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING ============ -->
+  <section class="closing">
+    <div class="shell center">
+      <h2 class="display h2" style="color:var(--bone)">Starts 16 November 2026.</h2>
+      <p style="color:rgba(245,243,238,.78); margin:18px auto 28px; max-width:46ch;">
+        Thirty seats. Apply and we will come back to you within a few days.
+      </p>
+      <div class="btnrow" style="justify-content:center;">
+        <a href="/apply" class="btn btn--solid">Apply</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero { padding-top: clamp(48px, 7vw, 84px); }
+
+  .vm-sessions { border-top: 1px solid var(--line-2); }
+  .vm-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 8px 40px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+  }
+  .vm-num {
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--signal); font-weight: 600; padding-top: 5px;
+  }
+  .vm-title { font-size: 1.15rem; letter-spacing: -.018em; margin: 0 0 6px; }
+  .vm-row p { margin: 0; color: var(--ink-2); font-size: .95rem; max-width: 62ch; }
+  @media (max-width: 720px) {
+    .vm-row { grid-template-columns: 1fr; gap: 4px; padding: 20px 0; }
+  }
+
+  .fac h3 { margin: 4px 0 10px; }
+  .fac .label { margin: 14px 0 0; }
+  .fac p:last-child { color: var(--ink-2); font-size: .92rem; margin: 0; }
+
+  .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
+  .faq summary { cursor: pointer; padding: 16px 0; font-weight: 650; font-size: 1rem; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: '+'; color: var(--signal); font-weight: 700; margin-right: 12px; }
+  .faq details[open] summary::before { content: '−'; }
+  .faq p { margin: 0 0 18px 26px; color: var(--ink-2); font-size: .95rem; max-width: 60ch; }
+
+  .mc-band { background: var(--ink); }
+  .mc-inner { display: flex; flex-wrap: wrap; align-items: center;
+    justify-content: space-between; gap: 26px; }
+
+  .closing { background: var(--ink); }
+</style>

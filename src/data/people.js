@@ -60,7 +60,7 @@ export const foundingFaculty = [
   },
   {
     name: 'Alex Dang',
-    role: 'Program Lead · The Venture Mindset',
+    role: 'Program Lead · Inside the Deal',
     photo: '/faculty/alex-dang.jpg', // source: bigthink.com author page
     bio: `Alex coauthored The Venture Mindset: How to Make Smarter Bets and Achieve
       Extraordinary Growth with Stanford's Ilya Strebulaev, a Financial Times Business Book
