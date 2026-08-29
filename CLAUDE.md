@@ -161,8 +161,11 @@ That is the one piece of genuinely unclaimed ground; keep it.
    agreed before the first paid enrollment.
 4. Confirm the **16 vs 17 session** count against the final curriculum.
 5. Photos for the remaining guests.
-5b. **Inside the Deal** (published as starting 16 November 2026, which is now
-   unrealistic given the rebuild; move it to the Jan/Feb term). The ten
+5b. **Inside the Deal** starts 11 January 2027, the same day as the Chief AI
+   Officer Program. **Both pages currently say Mondays at 16:00 CET, so the two
+   cohorts collide.** Greg's four-program plan staggered programs across
+   Monday to Thursday for exactly this reason. One of them needs a different
+   weekday before either is sold. The ten
    sessions are ours, drawn from Ilya's public material, and neither Alex nor
    Ilya has reviewed them. Confirm Hannes Chopra is still on the program now
    that the subject has changed, and get a real headshot from him: his current
