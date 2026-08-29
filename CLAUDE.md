@@ -124,9 +124,13 @@ coauthor in his bio is fine; building a session on the principles is not.
 **Cohort size is ~30.** Small is the product, not a limitation. Research showed
 platform-delivered competitors run 150–400; live faculty-led seminars cap small.
 
-**Price $6,500.** Verified competitor band for online executive AI programs is
-$3,100–$9,700 (McCombs, Booth, Section, Cornell, MIT xPRO, Imperial). Anything
-above ~$10k in that research included a campus residency.
+**Price $6,500, the same for every program** (decided 20 Aug 2026). Verified
+competitor band for online executive AI programs is $3,100–$9,700 (McCombs,
+Booth, Section, Cornell, MIT xPRO, Imperial). Anything above ~$10k in that
+research included a campus residency, which is what the two days in Silicon
+Valley are. **Those two days are included in every program, not just Chief AI
+Officer** (decided 20 Aug 2026), and that is what carries one price across the
+house. If the gathering is ever dropped, the price has to be revisited.
 
 **Build track.** No competitor in that band has executives ship working software.
 That is the one piece of genuinely unclaimed ground; keep it.
