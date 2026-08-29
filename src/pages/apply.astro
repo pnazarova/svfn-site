@@ -1,29 +1,114 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { FORM_ENDPOINT } from '../data/site.js';
 import BookACall from '../components/BookACall.astro';
+import { FORM_ENDPOINT } from '../data/site.js';
+
+/**
+ * Applications for every program run through this one page. Add a program
+ * here when it opens and it appears in the dropdown.
+ */
+const programs = [
+  { label: 'The Chief AI Officer Program', when: 'starts 11 January 2027' },
+  { label: 'Inside the Deal',              when: 'starts 16 November 2026' },
+];
+
+const steps = [
+  {
+    n: 'One',
+    t: 'You apply',
+    d: `The questions are short and we read every answer. Tell us what you are
+        actually working on and what you want to be able to do afterwards. A
+        one-line answer tells us as much as a long one, and usually not in your
+        favor.`,
+  },
+  {
+    n: 'Two',
+    t: 'We review it',
+    d: `Every application, usually within a few days. We are looking for people
+        with a real decision in front of them and enough authority to act on
+        what they learn.`,
+  },
+  {
+    n: 'Three',
+    t: 'We talk',
+    d: `If it looks like a fit we set up a short call. It runs both ways: you
+        should come away knowing whether this is right for you, and we would
+        rather tell you it is not than take your money.`,
+  },
+  {
+    n: 'Four',
+    t: 'We build the cohort',
+    d: `Thirty seats, chosen so the room has range without losing common
+        ground. You will be able to speak plainly with everyone in it.`,
+  },
+];
 ---
 
-<Layout title="Apply">
+<Layout
+  title="Apply"
+  description="Apply to a Silicon Valley Faculty Network program. We read every application and interview before we offer a seat."
+>
+
   <section class="hero">
     <div class="shell shell--narrow">
-      <p class="eyebrow">Cohort one</p>
-      <h1 class="display h2">Apply for the Chief AI Officer Program.</h1>
+      <p class="eyebrow">Applications</p>
+      <h1 class="display h2">Who else is in the room is part of what you are paying for.</h1>
       <p class="lede" style="margin-top:22px;">
-        Thirty seats. We read every application as it arrives and reply to all of them.
+        So we select for it. Thirty seats per cohort, an application we actually read, and a
+        conversation before anyone is offered a place.
       </p>
     </div>
   </section>
 
-  <section style="padding-top:0;">
-    <div class="shell shell--narrow">
+  <hr class="rule" />
 
-            <form method="POST" action={FORM_ENDPOINT} class="applyform">
-            <input type="hidden" name="_subject" value="New application" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://siliconvalleyfaculty.com/thanks" />
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+  <!-- ============ PROCESS ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">How it works</p>
+      <h2 class="display h3" style="margin-bottom:24px;">Four steps, about two weeks.</h2>
+      <ol class="steps" data-rise-group>
+        {steps.map((s) => (
+          <li class="step">
+            <span class="step-n">{s.n}</span>
+            <div>
+              <h3 class="display step-t">{s.t}</h3>
+              <p>{s.d}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="body" style="margin-top:28px;">
+        None of this is gatekeeping for its own sake. A cohort of thirty only works if
+        everyone in it can hold up their end of the conversation, and the value you get out
+        depends as much on the other twenty nine people as it does on the faculty.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ============ FORM ============ -->
+  <section>
+    <div class="shell shell--narrow">
+      <p class="eyebrow">Apply</p>
+      <h2 class="display h3" style="margin-bottom:22px;">Tell us about yourself.</h2>
+
+      <form method="POST" action={FORM_ENDPOINT} class="applyform">
+        <input type="hidden" name="_subject" value="New application" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://siliconvalleyfaculty.com/thanks" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="field">
+          <label for="prog">Which program?</label>
+          <select id="prog" name="program" required>
+            {programs.map((p) => <option value={`${p.label} (${p.when})`}>{p.label}</option>)}
+            <option value="Not sure yet">Not sure yet, I would like to discuss both</option>
+          </select>
+        </div>
+
         <div class="grid grid--2" style="gap:0 18px;">
           <div class="field"><label for="fn">Name</label><input id="fn" name="name" required /></div>
           <div class="field"><label for="em">Work email</label><input id="em" type="email" name="email" required /></div>
@@ -31,10 +116,18 @@ import BookACall from '../components/BookACall.astro';
           <div class="field"><label for="ti">Job title</label><input id="ti" name="title" required /></div>
         </div>
         <div class="field"><label for="li">LinkedIn</label><input id="li" name="linkedin" placeholder="linkedin.com/in/…" /></div>
+
         <div class="field">
-          <label for="go">What are you hoping to get from the program?</label>
-          <textarea id="go" name="goal"></textarea>
+          <label for="go">What are you working on that this would help with?</label>
+          <textarea id="go" name="goal" rows="4" required
+            placeholder="The decision, the mandate or the problem in front of you right now."></textarea>
         </div>
+        <div class="field">
+          <label for="ch">What would make this worth it for you?</label>
+          <textarea id="ch" name="outcome" rows="3" required
+            placeholder="What you want to be able to do in March that you cannot do today."></textarea>
+        </div>
+
         <div class="field">
           <label for="pay">Who would be paying?</label>
           <select id="pay" name="payer">
@@ -43,6 +136,7 @@ import BookACall from '../components/BookACall.astro';
             <option>Not sure yet</option>
           </select>
         </div>
+
         <button type="submit" class="btn btn--solid">Submit application</button>
         <p class="dim" style="font-size:.78rem; margin-top:12px;">
           We reply to every application. Your details go to
@@ -51,7 +145,7 @@ import BookACall from '../components/BookACall.astro';
       </form>
 
       <div style="margin-top:26px;">
-        <BookACall />
+        <BookACall heading="Would rather talk it through first?" />
       </div>
     </div>
   </section>
@@ -59,6 +153,21 @@ import BookACall from '../components/BookACall.astro';
 
 <style>
   .hero { padding-top: clamp(48px, 7vw, 84px); padding-bottom: 28px; }
+
   .applyform { background: var(--surface); border: 1px solid var(--line);
     border-radius: 4px; padding: 30px; }
+
+  /* A real sequence, so it is numbered. */
+  .steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-2); }
+  .step {
+    display: grid; grid-template-columns: 90px 1fr; gap: 6px 30px;
+    padding: 20px 0; border-bottom: 1px solid var(--line); align-items: start;
+  }
+  .step-n {
+    font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--signal); font-weight: 600; padding-top: 4px;
+  }
+  .step-t { font-size: 1.08rem; letter-spacing: -.015em; margin: 0 0 5px; }
+  .step p { margin: 0; color: var(--ink-2); font-size: .95rem; max-width: 60ch; }
+  @media (max-width: 620px) { .step { grid-template-columns: 1fr; gap: 6px; } }
 </style>
