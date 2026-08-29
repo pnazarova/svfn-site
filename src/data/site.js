@@ -12,20 +12,18 @@ export const SITE = {
  * Form handling.
  *
  * GitHub Pages serves static files only, so it cannot process a form post.
- * Web3Forms takes the submission and emails it straight to the address the
- * key is registered to. No account to manage, no CRM, no database.
+ * FormSubmit takes the submission and emails it to the address in the action
+ * URL. No account, no API key, no CRM. Same service Greg's site uses.
  *
- * TO ACTIVATE:
- *   1. Go to https://web3forms.com
- *   2. Enter info@siliconvalleyfaculty.com and press Create Access Key
- *   3. They email you a key. Paste it below, commit, done.
+ * ONE-TIME ACTIVATION: the first time any of these forms is submitted,
+ * FormSubmit emails info@siliconvalleyfaculty.com asking to confirm the
+ * address. Click that link once and every form works from then on.
  *
- * Until a real key is set, the forms show a notice instead of accepting
- * submissions, so nobody fills one in and thinks it was received.
+ * The address appears in the served HTML, which is fine because it is already
+ * published in the footer. To hide it later, activate the form and swap in the
+ * hashed endpoint FormSubmit gives you.
  */
-export const FORM_ACCESS_KEY = 'REPLACE_WITH_WEB3FORMS_KEY';
-
-export const FORMS_LIVE = FORM_ACCESS_KEY !== 'REPLACE_WITH_WEB3FORMS_KEY';
+export const FORM_ENDPOINT = 'https://formsubmit.co/info@siliconvalleyfaculty.com';
 
 /**
  * Booking.

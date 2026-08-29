@@ -2,8 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import MasterclassCard from '../components/MasterclassCard.astro';
 import { masterclasses } from '../data/masterclasses.js';
-import { FORM_ACCESS_KEY, FORMS_LIVE } from '../data/site.js';
-import FormOffline from '../components/FormOffline.astro';
+import { FORM_ENDPOINT } from '../data/site.js';
 ---
 
 <Layout title="Masterclasses" description="Free, live sessions with our faculty.">
@@ -39,19 +38,15 @@ import FormOffline from '../components/FormOffline.astro';
           <p class="label">Save your seat</p>
           <h2 class="display h4" style="margin:10px 0 14px;">Pick a session</h2>
 
-          {!FORMS_LIVE && <FormOffline subject="Masterclass signup" what="your name and which masterclass you want to join" />}
-
-          {FORMS_LIVE && (
-          <form
+                    <form
             method="POST"
-            action="https://api.web3forms.com/submit"
+            action={FORM_ENDPOINT}
           >
-            <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
-            <input type="hidden" name="subject" value="Masterclass signup" />
-            <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
-            <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
-            <input type="hidden" name="replyto" value="email" />
-            <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+            <input type="hidden" name="_subject" value="Masterclass signup" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
             <div class="field">
               <label for="mc-which">Masterclass</label>
               <select id="mc-which" name="masterclass" required>

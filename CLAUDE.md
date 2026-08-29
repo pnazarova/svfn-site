@@ -47,9 +47,12 @@ does not. That is deliberate.
   SPF, DKIM and a GoDaddy DMARC record at `p=quarantine`. Confirmed receiving
   20 Aug 2026. There is **no separate mailbox**: info@ and polina@ are aliases
   that land in the existing iCloud inbox, which cost two days of hunting once.
-- **Forms use Web3Forms**, which emails submissions straight to
-  info@siliconvalleyfaculty.com. GitHub Pages cannot process a form post, and
-  there is deliberately no CRM. The key lives in `src/data/site.js`.
+- **Forms use FormSubmit**, the same service as Greg's site. No account and no
+  API key: the form posts to `formsubmit.co/info@siliconvalleyfaculty.com` and
+  FormSubmit emails the submission on. GitHub Pages cannot process a form post
+  and there is deliberately no CRM. Endpoint in `src/data/site.js`.
+  **One-time activation:** the first submission triggers a confirmation email
+  to info@. Click it once and all three forms work permanently.
 
 If the dev server shows stale styles, **restart it**. Astro caches scoped CSS
 and this has already caused one false diagnosis.
@@ -65,7 +68,7 @@ Edit data, not markup. These feed several pages at once.
 | `src/data/guests.js` | Guest practitioners. `photo` set → photo card; `photo: null` → named list row. |
 | `src/data/masterclasses.js` | Masterclasses. `date` set → "Save my seat"; `window` only → "Sign up for date"; neither → waitlist. |
 | `src/data/people.js` | Founders and founding faculty. Feeds /about and /faculty. |
-| `src/data/site.js` | Domain, contact email, Web3Forms key, Calendly booking URL. |
+| `src/data/site.js` | Domain, contact email, FormSubmit endpoint, Calendly booking URL. |
 | `src/components/Terms.astro` | Group rate, payment, invoicing, cancellation. Shared by every program. |
 | `public/faculty/` | Portraits. Square, 400px+, face centred. |
 
@@ -132,15 +135,11 @@ That is the one piece of genuinely unclaimed ground; keep it.
 
 ## Still outstanding
 
-1. **Web3Forms key** — set it in `src/data/site.js` so the forms deliver.
-   The key is designed to be public and appears in the served HTML either way.
-   **Where mail lands is decided by the key registration, not by the code.**
-   Register the key against info@siliconvalleyfaculty.com and all three forms
-   deliver there. There are three: `/apply`, `/teach`, `/masterclasses`, all
-   sharing `FORM_ACCESS_KEY`. Until it is set, every one of them hides its form
-   and shows `FormOffline.astro` with a mailto, rather than posting an invalid
-   key and silently losing the submission. All three set `replyto` to the
-   submitter so Reply from info@ reaches the person.
+1. **Activate FormSubmit** — submit any form on the live site once, then click
+   the confirmation link that arrives at info@. Until that is done submissions
+   do not deliver. Three forms share the endpoint: `/apply`, `/teach`,
+   `/masterclasses`. After activation, consider swapping the address in
+   `FORM_ENDPOINT` for FormSubmit's hashed endpoint so it is not in the HTML.
 1b. **Calendly** — paste the booking URL into `BOOKING_URL` in `src/data/site.js`
    and the "Book a call" panels appear on `/apply` and both program pages.
    Empty string hides them everywhere. Deliberately a plain link, not an embed,

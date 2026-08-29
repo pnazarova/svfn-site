@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { FORM_ACCESS_KEY, FORMS_LIVE } from '../data/site.js';
+import { FORM_ENDPOINT } from '../data/site.js';
 import BookACall from '../components/BookACall.astro';
-import FormOffline from '../components/FormOffline.astro';
 ---
 
 <Layout title="Apply">
@@ -18,16 +17,13 @@ import FormOffline from '../components/FormOffline.astro';
 
   <section style="padding-top:0;">
     <div class="shell shell--narrow">
-      {!FORMS_LIVE && <FormOffline subject="Application" what="your name, company, role and which program you are interested in" />}
 
-      {FORMS_LIVE && (
-      <form method="POST" action="https://api.web3forms.com/submit" class="applyform">
-            <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
-            <input type="hidden" name="subject" value="New application" />
-            <input type="hidden" name="from_name" value="Silicon Valley Faculty Network" />
-            <input type="hidden" name="redirect" value="https://siliconvalleyfaculty.com/thanks" />
-            <input type="hidden" name="replyto" value="email" />
-            <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+            <form method="POST" action={FORM_ENDPOINT} class="applyform">
+            <input type="hidden" name="_subject" value="New application" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://siliconvalleyfaculty.com/thanks" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
         <div class="grid grid--2" style="gap:0 18px;">
           <div class="field"><label for="fn">Name</label><input id="fn" name="name" required /></div>
           <div class="field"><label for="em">Work email</label><input id="em" type="email" name="email" required /></div>
