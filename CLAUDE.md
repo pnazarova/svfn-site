@@ -70,6 +70,7 @@ Edit data, not markup. These feed several pages at once.
 | `src/data/people.js` | Founders and founding faculty. Feeds /about and /faculty. |
 | `src/data/site.js` | Domain, contact email, FormSubmit endpoint, Calendly booking URL. |
 | `src/components/Terms.astro` | Group rate, payment, invoicing, cancellation. Shared by every program. |
+| `src/pages/masterclasses.astro` | Signup lives in a `<dialog>`, rendered `open` then closed by inline JS so it degrades to an inline form. Each card opens it with its own session preselected; `#signup` from other pages opens it too. |
 | `public/faculty/` | Portraits. Square, 400px+, face centred. |
 
 ---
@@ -135,7 +136,8 @@ online only.
 **$2,000** for anyone who has taken a program, **$4,000** to join without
 having done one. Travel, hotels and meals are always the participant's own.
 It must never appear in a facts strip beside the price, because that reads as
-included.
+included. Frame it as something membership gets you, never as an exclusion:
+"not part of tuition, and not required" was rejected for sounding defensive.
 
 **Build track.** No competitor in that band has executives ship working software.
 That is the one piece of genuinely unclaimed ground; keep it.

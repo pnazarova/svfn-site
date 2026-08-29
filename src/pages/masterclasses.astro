@@ -31,57 +31,53 @@ import { FORM_ENDPOINT } from '../data/site.js';
   <section>
     <div class="shell">
       <p class="eyebrow">Upcoming</p>
-      <div class="mc-layout">
-        <div class="mc-list">
+      <div class="mc-list">
           {masterclasses.map((mc) => <MasterclassCard mc={mc} />)}
-        </div>
-
-        <!-- ============ SIGNUP ============ -->
-        <div class="signup" id="signup">
-          <p class="label">Save your seat</p>
-          <h2 class="display h4" style="margin:10px 0 14px;">Pick a session</h2>
-
-                    <form
-            method="POST"
-            action={FORM_ENDPOINT}
-          >
-            <input type="hidden" name="_subject" value="Masterclass signup" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://siliconvalleyfaculty.com/thanks" />
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-            <div class="field">
-              <label for="mc-which">Masterclass</label>
-              <select id="mc-which" name="masterclass" required>
-                {masterclasses.map((mc) => (
-                  <option value={`${mc.title} (${mc.date ?? mc.window ?? 'date to be set'})`}>
-                    {mc.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div class="field">
-              <label for="mc-name">Name</label>
-              <input id="mc-name" name="name" required />
-            </div>
-            <div class="field">
-              <label for="mc-email">Work email</label>
-              <input id="mc-email" type="email" name="email" placeholder="you@company.com" required />
-            </div>
-            <div class="field">
-              <label for="mc-company">Company and role</label>
-              <input id="mc-company" name="company" />
-            </div>
-
-            <button type="submit" class="btn btn--solid" style="width:100%;">Save my seat</button>
-            <p class="dim tiny">
-              We email you the joining link and nothing else. No spam, no list sharing.
-            </p>
-          </form>
-        </div>
       </div>
     </div>
   </section>
+
+  <!-- Rendered open, then closed by the script below. Without JS it stays a
+       normal inline form rather than an inert hidden one. -->
+  <dialog id="signup" class="mcdialog" open>
+    <form method="dialog" class="mcdialog-x"><button aria-label="Close">&times;</button></form>
+    <p class="label">Save your seat</p>
+    <h2 class="display h4" style="margin:8px 0 16px;">Which session?</h2>
+
+    <form method="POST" action={FORM_ENDPOINT}>
+      <input type="hidden" name="_subject" value="Masterclass signup" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://siliconvalleyfaculty.com/thanks" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+      <div class="field">
+        <label for="mc-which">Masterclass</label>
+        <select id="mc-which" name="masterclass" required>
+          {masterclasses.map((mc) => (
+            <option value={`${mc.title} (${mc.date ?? mc.window ?? 'date to be set'})`}>
+              {mc.title}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div class="field">
+        <label for="mc-name">Name</label>
+        <input id="mc-name" name="name" required />
+      </div>
+      <div class="field">
+        <label for="mc-email">Work email</label>
+        <input id="mc-email" type="email" name="email" placeholder="you@company.com" required />
+      </div>
+      <div class="field">
+        <label for="mc-company">Company and role</label>
+        <input id="mc-company" name="company" />
+      </div>
+      <button type="submit" class="btn btn--solid" style="width:100%;">Save my seat</button>
+      <p class="dim tiny">
+        We email you the joining link and nothing else. No spam, no list sharing.
+      </p>
+    </form>
+  </dialog>
 
   <section class="closing">
     <div class="shell center">
@@ -92,15 +88,33 @@ import { FORM_ENDPOINT } from '../data/site.js';
     </div>
   </section>
   <script is:inline>
-    // Both cards send you to the same form, so preselect the one that was
-    // clicked. Without this a visitor can land on the form showing a
-    // different session than the card they came from.
+    // The form ships open so it works without JS. With JS it becomes a dialog
+    // that each card opens with its own session already chosen.
     (function () {
+      var dlg = document.getElementById('signup');
       var sel = document.getElementById('mc-which');
-      if (!sel) return;
+      if (!dlg || !sel || !dlg.showModal) return;
+      dlg.close();
+
       document.querySelectorAll('.mc-list .mc-cta').forEach(function (a, i) {
-        a.addEventListener('click', function () { sel.selectedIndex = i; });
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          sel.selectedIndex = i;
+          dlg.showModal();
+          var first = dlg.querySelector('#mc-name');
+          if (first) first.focus();
+        });
       });
+
+      // click the backdrop to dismiss
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+
+      // other pages link straight to /masterclasses#signup, so honour the hash
+      function openFromHash() {
+        if (location.hash === '#signup' && !dlg.open) dlg.showModal();
+      }
+      openFromHash();
+      window.addEventListener('hashchange', openFromHash);
     })();
   </script>
 </Layout>
@@ -108,33 +122,29 @@ import { FORM_ENDPOINT } from '../data/site.js';
 <style>
   .hero { padding-top: clamp(48px, 7vw, 84px); }
 
-  .mc-layout {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 20px;
-    align-items: start;
-  }
-  /* minmax(0, 1fr), not 1fr. A 1fr track has an automatic minimum of
-     min-content, so the card was sizing the column to 415px inside a 327px
-     shell and hanging off the right edge of the phone. */
-  @media (max-width: 900px) { .mc-layout { grid-template-columns: minmax(0, 1fr); } }
 
   .mc-list { display: grid; gap: 20px; }
 
-  /* The signup box is shorter than the card column, so keep it in view
-     while the visitor reads down the list. */
-  @media (min-width: 901px) { .signup { position: sticky; top: 96px; } }
+  .mcdialog {
+    max-width: 460px; width: calc(100% - 32px);
+    border: 1px solid var(--line); border-radius: 5px;
+    background: var(--surface); color: var(--ink);
+    padding: 30px; position: relative;
+  }
+  .mcdialog::backdrop { background: rgba(17,18,20,.55); }
+  .mcdialog-x { position: absolute; top: 10px; right: 12px; margin: 0; }
+  .mcdialog-x button {
+    background: none; border: 0; cursor: pointer; font-size: 1.5rem;
+    line-height: 1; color: var(--mid); padding: 4px 8px;
+  }
+  .mcdialog-x button:hover { color: var(--ink); }
+  /* Without JS it sits inline in the page, so it needs its own spacing.
+     As a modal the browser centres it with margin:auto, which that rule
+     would otherwise cancel, pinning the dialog to the top of the screen. */
+  .mcdialog[open] { margin: 0 auto 60px; }
+  .mcdialog:modal { margin: auto; max-height: calc(100vh - 48px); overflow-y: auto; }
 
-  .signup {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 28px;
-  }
-  .signup-when {
-    font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--mid); margin: 0 0 22px;
-  }
+
   .tiny { font-size: .74rem; margin: 12px 0 0; line-height: 1.5; }
   .closing { background: var(--ink); }
 </style>
