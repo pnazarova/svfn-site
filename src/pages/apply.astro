@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { FORM_ACCESS_KEY } from '../data/site.js';
+import { FORM_ACCESS_KEY, FORMS_LIVE } from '../data/site.js';
+import BookACall from '../components/BookACall.astro';
 ---
 
 <Layout title="Apply">
@@ -9,14 +10,29 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
       <p class="eyebrow">Cohort one</p>
       <h1 class="display h2">Apply for the Chief AI Officer Program.</h1>
       <p class="lede" style="margin-top:22px;">
-        Thirty seats. We review applications as they arrive and reply within
-        <span class="todo">N</span> business days.
+        Thirty seats. We read every application as it arrives and reply to all of them.
       </p>
     </div>
   </section>
 
   <section style="padding-top:0;">
     <div class="shell shell--narrow">
+      {!FORMS_LIVE && (
+        <div class="applyform offline">
+          <p class="label" style="color:var(--signal)">Applications by email for now</p>
+          <h2 class="display h4" style="margin:10px 0 12px;">The form is not connected yet.</h2>
+          <p style="color:var(--ink-2); font-size:.95rem; max-width:56ch;">
+            Rather than take your details and lose them, write to us directly with your
+            name, company, role and which program you are interested in. We reply to
+            everything.
+          </p>
+          <p style="margin:18px 0 0;">
+            <a href="mailto:info@siliconvalleyfaculty.com?subject=Application" class="btn btn--solid">Email us</a>
+          </p>
+        </div>
+      )}
+
+      {FORMS_LIVE && (
       <form method="POST" action="https://api.web3forms.com/submit" class="applyform">
             <input type="hidden" name="access_key" value={FORM_ACCESS_KEY} />
             <input type="hidden" name="subject" value="New application" />
@@ -48,6 +64,11 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
           info@siliconvalleyfaculty.com and nowhere else.
         </p>
       </form>
+      )}
+
+      <div style="margin-top:26px;">
+        <BookACall />
+      </div>
     </div>
   </section>
 </Layout>
@@ -56,4 +77,5 @@ import { FORM_ACCESS_KEY } from '../data/site.js';
   .hero { padding-top: clamp(48px, 7vw, 84px); padding-bottom: 28px; }
   .applyform { background: var(--surface); border: 1px solid var(--line);
     border-radius: 4px; padding: 30px; }
+  .offline { border-left: 3px solid var(--signal); }
 </style>

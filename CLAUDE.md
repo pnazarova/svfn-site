@@ -65,7 +65,7 @@ Edit data, not markup. These feed several pages at once.
 | `src/data/guests.js` | Guest practitioners. `photo` set → photo card; `photo: null` → named list row. |
 | `src/data/masterclasses.js` | Masterclasses. `date` set → "Save my seat"; `window` only → "Sign up for date"; neither → waitlist. |
 | `src/data/people.js` | Founders and founding faculty. Feeds /about and /faculty. |
-| `src/data/site.js` | Domain, contact email, Web3Forms key. |
+| `src/data/site.js` | Domain, contact email, Web3Forms key, Calendly booking URL. |
 | `src/components/Terms.astro` | Group rate, payment, invoicing, cancellation. Shared by every program. |
 | `public/faculty/` | Portraits. Square, 400px+, face centred. |
 
@@ -134,6 +134,13 @@ That is the one piece of genuinely unclaimed ground; keep it.
 
 1. **Web3Forms key** — set it in `src/data/site.js` so the forms deliver.
    The key is designed to be public and appears in the served HTML either way.
+   Until it is set, `/apply` hides the form and shows a mailto fallback rather
+   than posting an invalid key and losing the application. The masterclass
+   signup form on `/masterclasses` is NOT yet guarded the same way.
+1b. **Calendly** — paste the booking URL into `BOOKING_URL` in `src/data/site.js`
+   and the "Book a call" panels appear on `/apply` and both program pages.
+   Empty string hides them everywhere. Deliberately a plain link, not an embed,
+   so no third-party script runs on the site.
 2. **Chief AI Officer starts 11 January 2027** (agreed 18 Aug). Session count
    and cadence still OPEN: either 8 sessions of 2-3h once a week, or 1-1.5h
    twice a week. The site still advertises 16 sessions and 24 hours live,

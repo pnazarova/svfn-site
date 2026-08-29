@@ -30,8 +30,7 @@ export const masterclasses = [
     facultyRole: 'Program Lead · Inside the Deal',
     photo: '/faculty/alex-dang.jpg',
     duration: '45 minutes',
-    date: null,
-    window: 'October',
+    date: '12 October 2026, 18:00 CET',
     program: 'Inside the Deal',
     blurb:
       'The clauses that decide who actually makes money when a company sells, and why corporate investors and founders routinely sign terms they could not explain a year later.',

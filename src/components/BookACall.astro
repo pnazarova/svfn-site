@@ -1,0 +1,41 @@
+---
+/**
+ * Book a call.
+ *
+ * Renders nothing until BOOKING_URL is set in site.js, so a half-configured
+ * link never reaches a visitor. Opens Calendly in a new tab rather than
+ * embedding it, which keeps third-party script off the site.
+ */
+import { BOOKING_URL, BOOKING_LIVE, SITE } from '../data/site.js';
+const { heading = 'Rather talk to a person first?', body = null, tone = 'light' } = Astro.props;
+---
+
+{BOOKING_LIVE && (
+  <div class={`book book--${tone}`}>
+    <div>
+      <h3 class="display book-h">{heading}</h3>
+      <p class="book-p">
+        {body ?? 'Fifteen minutes with us, no pitch. Bring the questions you would not put in a form.'}
+      </p>
+    </div>
+    <a href={BOOKING_URL} class="btn btn--solid" target="_blank" rel="noopener">Book a call</a>
+  </div>
+)}
+
+<style>
+  .book {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 20px 30px;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--signal);
+    border-radius: 4px;
+    padding: 26px 28px;
+  }
+  .book--light { background: var(--surface); }
+  .book--dark  { background: transparent; border-color: rgba(245,243,238,.18);
+                 border-left-color: var(--signal); }
+  .book-h { font-size: 1.15rem; letter-spacing: -.015em; margin: 0 0 6px; }
+  .book-p { margin: 0; color: var(--ink-2); font-size: .93rem; max-width: 46ch; }
+  .book--dark .book-h { color: var(--bone); }
+  .book--dark .book-p { color: rgba(245,243,238,.75); }
+</style>

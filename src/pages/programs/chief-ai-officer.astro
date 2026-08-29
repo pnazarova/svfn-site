@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Terms from '../../components/Terms.astro';
+import BookACall from '../../components/BookACall.astro';
 import Portrait from '../../components/Portrait.astro';
 import { guestsWithPhoto, guestsListed } from '../../data/guests.js';
 
@@ -332,6 +333,9 @@ const faqs = [
         accommodation and meals for those days are not included.
       </p>
       <Terms />
+      <div style="margin-top:30px;">
+        <BookACall heading="Not sure it is the right program?" />
+      </div>
     </div>
   </section>
 
