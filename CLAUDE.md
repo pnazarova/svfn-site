@@ -126,11 +126,16 @@ platform-delivered competitors run 150–400; live faculty-led seminars cap smal
 
 **Price $6,500, the same for every program** (decided 20 Aug 2026). Verified
 competitor band for online executive AI programs is $3,100–$9,700 (McCombs,
-Booth, Section, Cornell, MIT xPRO, Imperial). Anything above ~$10k in that
-research included a campus residency, which is what the two days in Silicon
-Valley are. **Those two days are included in every program, not just Chief AI
-Officer** (decided 20 Aug 2026), and that is what carries one price across the
-house. If the gathering is ever dropped, the price has to be revisited.
+Booth, Section, Cornell, MIT xPRO, Imperial). Note the research put anything
+above ~$10k as including a campus residency, and ours does **not**: tuition is
+online only.
+
+**The Silicon Valley day is a paid add-on, not part of tuition** (corrected
+20 Aug 2026). One day, once a year, shared across every program.
+**$2,000** for anyone who has taken a program, **$4,000** to join without
+having done one. Travel, hotels and meals are always the participant's own.
+It must never appear in a facts strip beside the price, because that reads as
+included.
 
 **Build track.** No competitor in that band has executives ship working software.
 That is the one piece of genuinely unclaimed ground; keep it.
