@@ -140,10 +140,11 @@ That is the one piece of genuinely unclaimed ground; keep it.
    do not deliver. Three forms share the endpoint: `/apply`, `/teach`,
    `/masterclasses`. After activation, consider swapping the address in
    `FORM_ENDPOINT` for FormSubmit's hashed endpoint so it is not in the HTML.
-1b. **Calendly** — paste the booking URL into `BOOKING_URL` in `src/data/site.js`
-   and the "Book a call" panels appear on `/apply` and both program pages.
-   Empty string hides them everywhere. Deliberately a plain link, not an embed,
-   so no third-party script runs on the site.
+1b. ~~Calendly~~ live: `BOOKING_URL` in `src/data/site.js` points at the 30 min
+   link, and "Book a call" panels render on `/apply` and both program pages.
+   Deliberately a plain link, not an embed, so no third-party script runs.
+   If the Calendly slot length ever changes, update the copy in
+   `BookACall.astro`, which says thirty minutes.
 2. **Chief AI Officer starts 11 January 2027** (agreed 18 Aug). Session count
    and cadence still OPEN: either 8 sessions of 2-3h once a week, or 1-1.5h
    twice a week. The site still advertises 16 sessions and 24 hours live,

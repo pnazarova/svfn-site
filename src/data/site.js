@@ -34,5 +34,5 @@ export const FORM_ENDPOINT = 'https://formsubmit.co/info@siliconvalleyfaculty.co
  * Leave empty and every "book a call" button disappears on its own. Paste the
  * Calendly URL here and they all appear.
  */
-export const BOOKING_URL = '';
+export const BOOKING_URL = 'https://calendly.com/siliconvalleyfaculty-info/30min';
 export const BOOKING_LIVE = BOOKING_URL !== '';
